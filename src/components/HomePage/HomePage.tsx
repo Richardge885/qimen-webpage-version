@@ -1,61 +1,53 @@
-import HomePageChooseMethodButton from "./HomePageChooseMethodButton";
-import HomePageCurrentTimeButton from "./HomePageCurrentTimeButton";
+import { useState } from 'react';
+import { FaArrowRotateLeft } from 'react-icons/fa6';
+import HomePageChooseMethodButton from './HomePageChooseMethodButton';
+import HomePageCurrentTimeButton from './HomePageCurrentTimeButton';
 
 const HomePage = () => {
-    const buttonStyle = "w-[60vw] h-[3rem] bg-red text-bglight text-[2.8rem] hover:bg-bgdark hover:text-red rounded-[20px] duration-200 py-10 flex flex-col justify-center items-center";
-    const inputLabel = "text-[2rem] text-text font-bold px-[1rem]";
-    const numberInputStyle = " h-[4vh] text-[1.5rem] bg-bgdark rounded-[0.48rem] text-center";
+    const buttonStyle =
+        'w-[60vw] h-[3rem] bg-red text-bglight text-[2.8rem] hover:bg-bgdark hover:text-red rounded-[20px] duration-200 py-10 flex flex-col justify-center items-center';
 
-    const currentTimeValuesInNumbers = getCurrentTimeInNumbers();
+    const getCurrentTimeForInputTag = () => {
+        const now = new Date();
+
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    };
+    const [inputTime, setInputTime] = useState(getCurrentTimeForInputTag());
+
+    const handleBackToCurrentTime = () => {
+        setInputTime(getCurrentTimeForInputTag);
+    };
 
     return (
-        <div className="flex flex-col bg-bglight h-screen justify-center items-center">
-            <div className="flex flex-col justify-center items-center h-[60vh] gap-[1rem]">
-                <h1 className="font-lishu text-red text-[10rem]">鸣法</h1>
-                <div className="flex flex-col justify-center items-center">
-                    <div className="flex flex-row flex-nowrap whitespace-nowrap w-[90vw] justify-center items-center">
-                        <label className={inputLabel} htmlFor="year">
-                            年
-                            <input type="number" name="year" id="" className={numberInputStyle + ' w-[22vw]'} min={1} max={9999} value={currentTimeValuesInNumbers.year} />
-                        </label>
-                        <label className={inputLabel} htmlFor="month">
-                            月
-                            <input type="number" name="month" id="" className={numberInputStyle + ' w-[15vw]'} min={1} max={12} value={currentTimeValuesInNumbers.month} />
-                        </label>
-                        <label className={inputLabel}>
-                            日
-                            <input type="number" name="day" id="" className={numberInputStyle + ' w-[15vw]'} min={1} max={31} value={currentTimeValuesInNumbers.day} />
-                        </label>
-                    </div>
-                    <div className="flex flex-row flex-nowrap whitespace-nowrap w-[90vw] justify-center items-center">
-                        <label className={inputLabel}>
-                            时
-                            <input type="number" name="hour" id="" className={numberInputStyle + ' w-[15vw]'} min={0} max={24} value={currentTimeValuesInNumbers.hour} />
-                        </label>
-                        <label className={inputLabel}>
-                            分
-                            <input type="number" name="minute" id="" className={numberInputStyle + ' w-[15vw]'} min={0} max={60} value={currentTimeValuesInNumbers.minutes} />
-                        </label>
-                    </div>
+        <div className='flex h-screen flex-col items-center justify-center bg-bglight'>
+            <div className='flex h-[60vh] flex-col items-center justify-center gap-[1rem]'>
+                <h1 className='font-lishu text-[10rem] text-red'>鸣法</h1>
+                <div className='flex max-w-[40vw] flex-row items-center justify-center gap-[0.2rem]'>
+                    <input
+                        type='datetime-local'
+                        value={inputTime}
+                        onChange={(e) => setInputTime(e.target.value)}
+                        className='min-h-[7vh] min-w-[80vw] rounded-[10px] border-[1px] border-solid border-red bg-bgdark text-2xl'
+                    />
+                    <button
+                        onClick={handleBackToCurrentTime}
+                        className='min-h-[7vh] min-w-[15vw] rounded-[10px] bg-red text-center text-2xl text-bglight transition-all duration-150 hover:bg-bgdark hover:text-red'
+                    >
+                        <FaArrowRotateLeft className='m-auto' />
+                    </button>
                 </div>
             </div>
-            <div className="flex flex-col justify-center items-center h-[40vh] gap-10">
+            <div className='flex h-[40vh] flex-col items-center justify-center gap-10'>
                 <HomePageCurrentTimeButton style={buttonStyle} />
                 <HomePageChooseMethodButton style={buttonStyle} />
             </div>
         </div>
     );
 };
-
-function getCurrentTimeInNumbers(): { year: number; month: number; day: number; hour: number; minutes: number; } {
-    const now = new Date();
-    return {
-        year: now.getFullYear(),
-        month: now.getMonth() + 1, // Months are zero-based, so we add 1
-        day: now.getDate(),
-        hour: now.getHours(),
-        minutes: now.getMinutes(),
-    };
-}
 
 export default HomePage;
