@@ -2,21 +2,21 @@ import HomePageChooseMethodButton from "./HomePageChooseMethodButton";
 import HomePageCurrentTimeButton from "./HomePageCurrentTimeButton";
 
 const HomePage = () => {
-    const buttonStyle = "w-[60vw] h-[10vh] bg-red text-bglight text-8xl hover:bg-bgdark hover:text-red rounded-[20px] duration-200 py-10 flex flex-col justify-center items-center";
-    const inputLabel = "text-[3rem] text-text font-bold px-[1rem]";
-    const numberInputStyle = "w-[8rem] h-[4rem] text-[3rem] bg-bgdark rounded-[0.48rem]";
+    const buttonStyle = "w-[60vw] h-[10vh] bg-red text-bglight text-5xl hover:bg-bgdark hover:text-red rounded-[20px] duration-200 py-10 flex flex-col justify-center items-center";
+    const inputLabel = "text-[2rem] text-text font-bold px-[1rem]";
+    const numberInputStyle = "w-[10vw] h-[4vh] text-[3rem] bg-bgdark rounded-[0.48rem]";
 
     return (
         <div className="flex flex-col bg-bglight h-screen justify-center items-center">
             <div className="flex flex-col justify-center items-center h-[60vh] gap-[18vh]">
-                <h1 className="text-red text-[10rem]">鸣法</h1>
+                <h1 className="font-lishu text-red text-[10rem]">鸣法</h1>
                 <div className="flex flex-col justify-center items-center gap-10">
                     <div>
-                        <label className={inputLabel}>
+                        <label className={inputLabel} htmlFor="year">
                             年
                             <input type="number" name="year" id="" className={numberInputStyle} min={1} max={9999} />
                         </label>
-                        <label className={inputLabel}>
+                        <label className={inputLabel} htmlFor="month">
                             月
                             <input type="number" name="month" id="" className={numberInputStyle} min={1} max={12} />
                         </label>
