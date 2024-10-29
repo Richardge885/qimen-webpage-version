@@ -3,17 +3,11 @@
 @tailwind utilities;
 
 /* src url 必须参考 tailwind 的输出文件, 不是input.css 文件 */
-@layer base {
-    @font-face {
-        font-family: 'liShu';
-        src: url('./assets/fonts/LiShuZiTi.ttf');
-    }
-}
 
 @layer base {
     @font-face {
         font-family: 'kaiti';
-        src: url('./assets/fonts/KaiTi.ttf');
+        src: url('./assets/fonts/KaiTi.woff2');
     }
 }
 
