@@ -13,6 +13,10 @@ const HomePage = () => {
 
     return (
         <div className='flex h-screen flex-col items-center justify-center gap-[1rem] bg-bglight'>
+            <OverLay
+                modalState={modalState}
+                handleCloseModal={closeModal}
+            />
             <div className='flex h-[60vh] flex-col items-center justify-center gap-[1rem]'>
                 <Title className='h-[35vh] w-[45vw] bg-transparent' />
                 <TimeInput />
@@ -22,10 +26,6 @@ const HomePage = () => {
                 home={true}
                 paipan={false}
                 settings={false}
-            />
-            <OverLay
-                modalState={modalState}
-                handleCloseModal={closeModal}
             />
         </div>
     );
