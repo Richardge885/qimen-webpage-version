@@ -7,7 +7,7 @@ interface Props {
 
 const ModalBox = ({ modalState, handleCloseModal }: Props) => {
     const modalBoxStyle =
-        'absolute gap-[10vw] left-1/2 top-1/2 flex h-[80vw] w-[70vw] translate-x-[-50%] flex-col items-center justify-center rounded-[15px] bg-bglight transition-all ease-linear z-10';
+        'absolute gap-[10vw] left-1/2 top-1/2 flex h-[80vw] w-[70vw] translate-x-[-50%] flex-col items-center justify-center rounded-[15px] bg-bglight transition-all ease-linear z-20';
 
     // Clear number input box ever time the modal is shown
     const numberInputRef = useRef<HTMLInputElement>(null);

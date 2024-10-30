@@ -1,47 +1,58 @@
 import { GoHome } from 'react-icons/go';
 import { CgHashtag } from 'react-icons/cg';
 import { IoSettingsOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 interface Props {
-    home: boolean;
-    paipan: boolean;
-    settings: boolean;
+    activePage: string;
+    setActivePage: (page: string) => void;
 }
 
-const NavigationBar = ({
-    home = false,
-    paipan = false,
-    settings = false,
-}: Props) => {
+const NavigationBar = ({ activePage, setActivePage }: Props) => {
     return (
-        <div className='flex h-[4rem] w-screen flex-row items-center justify-around bg-red sm:rounded-tl-[20px] sm:rounded-tr-[20px]'>
-            <div>
+        <div className='absolute bottom-0 flex h-[4rem] w-screen flex-row items-center justify-around bg-red sm:rounded-tl-[20px] sm:rounded-tr-[20px]'>
+            <Link
+                to={'/qimen-webpage-version/'}
+                onClick={() => {
+                    setActivePage('home');
+                }}
+            >
                 <GoHome
                     className={
-                        home
-                            ? 'rounded-full border-[2px] border-solid border-bglight text-[2.2rem] text-bglight'
+                        activePage === 'home'
+                            ? 'rounded-full border-[2px] border-solid border-bglight text-[2rem] text-bglight'
                             : 'text-[2rem] text-bglight'
                     }
                 />
-            </div>
-            <div>
+            </Link>
+            <Link
+                to={'/qimen-webpage-version/paipan'}
+                onClick={() => {
+                    setActivePage('paipan');
+                }}
+            >
                 <CgHashtag
                     className={
-                        paipan
-                            ? 'rounded-full border-[2px] border-solid border-bglight text-[2.2rem] text-bglight'
+                        activePage === 'paipan'
+                            ? 'rounded-full border-[2px] border-solid border-bglight text-[2rem] text-bglight'
                             : 'text-[2rem] text-bglight'
                     }
                 />
-            </div>
-            <div>
+            </Link>
+            <Link
+                to={'/qimen-webpage-version/settings'}
+                onClick={() => {
+                    setActivePage('settings');
+                }}
+            >
                 <IoSettingsOutline
                     className={
-                        settings
-                            ? 'rounded-full border-[2px] border-solid border-bglight text-[2.2rem] text-bglight'
+                        activePage === 'settings'
+                            ? 'rounded-full border-[2px] border-solid border-bglight text-[2rem] text-bglight'
                             : 'text-[2rem] text-bglight'
                     }
                 />
-            </div>
+            </Link>
         </div>
     );
 };
