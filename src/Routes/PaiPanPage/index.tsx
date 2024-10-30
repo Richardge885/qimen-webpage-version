@@ -1,10 +1,12 @@
-interface Props {
-    panJu: any;
-}
+// interface Props {
+//     panJu: any;
+// }
 
-const index = ({ panJu }: Props) => {
+const index = () => {
     return (
-        <div className='flex h-screen flex-col items-center justify-center gap-[1rem] pb-16'></div>
+        <div className='flex h-screen flex-col items-center justify-center gap-[1rem] bg-bglight pb-16'>
+            排盘页面
+        </div>
     );
 };
 

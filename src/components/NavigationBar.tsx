@@ -12,7 +12,7 @@ const NavigationBar = ({ activePage, setActivePage }: Props) => {
     return (
         <div className='absolute bottom-0 flex h-[4rem] w-screen flex-row items-center justify-around bg-red sm:rounded-tl-[20px] sm:rounded-tr-[20px]'>
             <Link
-                to={'/qimen-webpage-version/'}
+                to={'/'}
                 onClick={() => {
                     setActivePage('home');
                 }}
@@ -26,7 +26,7 @@ const NavigationBar = ({ activePage, setActivePage }: Props) => {
                 />
             </Link>
             <Link
-                to={'/qimen-webpage-version/paipan'}
+                to={'/paipan'}
                 onClick={() => {
                     setActivePage('paipan');
                 }}
@@ -40,7 +40,7 @@ const NavigationBar = ({ activePage, setActivePage }: Props) => {
                 />
             </Link>
             <Link
-                to={'/qimen-webpage-version/settings'}
+                to={'/settings'}
                 onClick={() => {
                     setActivePage('settings');
                 }}
