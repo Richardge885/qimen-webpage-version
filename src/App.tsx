@@ -19,7 +19,6 @@ function App() {
 
     checkAndInitializeLocalStorage();
 
-    console.log(panJu.allTimeInformation);
     return (
         <div className='flex flex-col items-center justify-center bg-bglight'>
             <Routes>
@@ -714,6 +713,7 @@ function checkAndInitializeLocalStorage() {
                 traditionalChar: false,
                 singleChar: false,
                 baoShuMethod: '时辰',
+                displayLiuQin: '',
             }),
         );
     }
