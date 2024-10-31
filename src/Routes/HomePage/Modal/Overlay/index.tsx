@@ -1,16 +1,50 @@
+import { PanJuInformation } from '../../../../interfaces';
 import ModalBox from './ModalBox';
 
 interface Props {
     modalState: boolean;
     handleCloseModal: () => void;
+    updateActivePage: (page: string) => void;
+    updatePanJu: (panJuInfo: PanJuInformation) => void;
+    updateBaoShuMethod: (method: string) => void;
+    updateBaoShuNumber: (baoshu: number) => void;
+    paiPanInfo: {
+        paipanMethod: string;
+        time: {
+            year: number;
+            month: number;
+            day: number;
+            hour: number;
+            minute: number;
+        };
+        baoshuMethod: string; // 制筹, 时辰, 局数
+        baoshu: number;
+        ziXuanJu: string;
+        additionalSettings: {
+            traditionalCharacters: boolean;
+            singleCharacter: boolean;
+        };
+    };
 }
 
-const OverLay = ({ modalState, handleCloseModal }: Props) => {
+const OverLay = ({
+    modalState,
+    handleCloseModal,
+    updateActivePage,
+    updateBaoShuMethod,
+    updateBaoShuNumber,
+    updatePanJu,
+    paiPanInfo,
+}: Props) => {
     return (
         <>
             <ModalBox
+                updateActivePage={updateActivePage}
                 modalState={modalState}
-                handleCloseModal={handleCloseModal}
+                paiPanInfo={paiPanInfo}
+                updatePanJu={updatePanJu}
+                updateBaoShuMethod={updateBaoShuMethod}
+                updateBaoShuNumber={updateBaoShuNumber}
             />
             <div
                 className={

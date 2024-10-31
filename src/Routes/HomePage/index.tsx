@@ -1,53 +1,116 @@
 import HomePagePaiPanButtonGroup from './HomPagePaiPanButtonGroup';
 import TimeInput from './TimeInput';
 import Title from '../../assets/Title.svg?react';
-import { useState } from 'react';
 import OverLay from './Modal/Overlay';
+import { PanJuInformation } from '../../interfaces';
+import { useState } from 'react';
+import HomePageSelectionInput from './HomePageSelectionInput';
 
-const HomePage = () => {
+interface Props {
+    updatePanJu: (panJuInfo: PanJuInformation) => void;
+    updateActivePage: (page: string) => void;
+}
+
+/**
+ * paipanMethod = "飞盘",
+ * time = {
+ *      year: number
+ *      month: number
+ *      day: number
+ *      hour: number
+ *      minute: number
+ * },
+ * baoshuMethod = "", // 制筹, 时辰, 局数
+ * baoshu = 0,
+ * chaiBu = true,
+ * ziXuanJu = "",
+ * additionalSettings = {
+ *      traditionalCharacters: boolean;
+ *      singleCharacter: boolean;
+ * },
+ * 如果baoshuMethod = '' 和 baoshu == 0 则使用 ziXuanJu
+ */
+
+const HomePage = ({ updatePanJu, updateActivePage }: Props) => {
+    const settings = JSON.parse(localStorage.getItem('qimenSettings')!);
     const [modalState, setModalState] = useState(false);
+
+    const [ziXuanJu, setZiXuanJu] = useState('');
+    const [baoShuMethod, setBaoShuMethod] = useState(settings.baoShuMethod); // Needs update with localstorage
+    const [baoShu, setBaoShu] = useState(0);
+
+    const [year, setYear] = useState(0);
+    const [month, setMonth] = useState(0);
+    const [day, setDay] = useState(0);
+    const [hour, setHour] = useState(0);
+    const [minute, setMinute] = useState(0);
+
     const openModal = () => setModalState(true);
     const closeModal = () => setModalState(false);
+
+    const updateYear = (updateNumber: number) => setYear(updateNumber);
+    const updateMonth = (updateNumber: number) => setMonth(updateNumber);
+    const updateDay = (updateNumber: number) => setDay(updateNumber);
+    const updateHour = (updateNumber: number) => setHour(updateNumber);
+    const updateMinute = (updateNumber: number) => setMinute(updateNumber);
+    const updateZiXuanJu = (updateZiXuanJu: string) => {
+        setZiXuanJu(updateZiXuanJu);
+    };
+    const updateBaoShuMethod = (method: string) => {
+        settings.baoShuMethod = method;
+        localStorage.setItem('qimenSettings', JSON.stringify(settings));
+        setBaoShuMethod(method);
+    };
+    const updateBaoShuNumber = (baoshu: number) => {
+        setBaoShu(baoshu);
+    };
+
+    const paiPanInfo = {
+        paipanMethod: '飞盘',
+        time: {
+            year: year,
+            month: month,
+            day: day,
+            hour: hour,
+            minute: minute,
+        },
+        baoshuMethod: baoShuMethod, // 制筹, 时辰, 局数
+        baoshu: baoShu,
+        ziXuanJu: ziXuanJu,
+        additionalSettings: {
+            traditionalCharacters: settings.traditionalChar,
+            singleCharacter: settings.singleChar,
+        },
+    };
 
     return (
         <div className='flex h-screen flex-col items-center justify-center gap-[1rem] pb-16'>
             <OverLay
                 modalState={modalState}
                 handleCloseModal={closeModal}
+                paiPanInfo={paiPanInfo}
+                updatePanJu={updatePanJu}
+                updateActivePage={updateActivePage}
+                updateBaoShuMethod={updateBaoShuMethod}
+                updateBaoShuNumber={updateBaoShuNumber}
             />
             <div className='flex h-[60vh] flex-col items-center justify-center gap-[1rem]'>
                 <Title className='h-[35vh] w-[45vw] bg-transparent' />
-                <TimeInput />
-                <label className='text-center text-xl text-red'>
-                    自选局：
-                    <select className='bg-bgdark text-black'>
-                        <option value=''>默认</option>
-                        <optgroup label='阳遁'>
-                            <option value='阳1局'>阳1局</option>
-                            <option value='阳2局'>阳2局</option>
-                            <option value='阳3局'>阳3局</option>
-                            <option value='阳4局'>阳4局</option>
-                            <option value='阳5局'>阳5局</option>
-                            <option value='阳6局'>阳6局</option>
-                            <option value='阳7局'>阳7局</option>
-                            <option value='阳8局'>阳8局</option>
-                            <option value='阳9局'>阳9局</option>
-                        </optgroup>
-                        <optgroup label='阴遁'>
-                            <option value='阴1局'>阴1局</option>
-                            <option value='阴2局'>阴2局</option>
-                            <option value='阴3局'>阴3局</option>
-                            <option value='阴4局'>阴4局</option>
-                            <option value='阴5局'>阴5局</option>
-                            <option value='阴6局'>阴6局</option>
-                            <option value='阴7局'>阴7局</option>
-                            <option value='阴8局'>阴8局</option>
-                            <option value='阴9局'>阴9局</option>
-                        </optgroup>
-                    </select>
-                </label>
+                <TimeInput
+                    updateYear={updateYear}
+                    updateMonth={updateMonth}
+                    updateDay={updateDay}
+                    updateHour={updateHour}
+                    updateMinute={updateMinute}
+                />
+                <HomePageSelectionInput updateZiXuanJu={updateZiXuanJu} />
             </div>
-            <HomePagePaiPanButtonGroup openModal={openModal} />
+            <HomePagePaiPanButtonGroup
+                openModal={openModal}
+                paiPanInfo={paiPanInfo}
+                updatePanJu={updatePanJu}
+                updateActivePage={updateActivePage}
+            />
         </div>
     );
 };
