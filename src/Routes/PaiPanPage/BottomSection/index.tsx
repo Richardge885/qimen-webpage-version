@@ -1,7 +1,19 @@
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaArrowRight } from 'react-icons/fa';
 
-const index = () => {
+interface Props {
+    displayHuanJu: boolean;
+    huanJuExist: boolean;
+    enableHuanJu: () => void;
+    disableHuanJu: () => void;
+}
+
+const index = ({
+    huanJuExist,
+    displayHuanJu,
+    enableHuanJu,
+    disableHuanJu,
+}: Props) => {
     return (
         <div className='flex w-screen flex-col items-center justify-center gap-4 px-4'>
             <input
@@ -17,9 +29,30 @@ const index = () => {
                         <FaArrowRight className='text-[5vw] text-bglight' />
                     </button>
                 </div>
-                <button className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight'>
-                    甲时换局
-                </button>
+                {huanJuExist ? (
+                    displayHuanJu ? (
+                        <button
+                            className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight'
+                            onClick={() => disableHuanJu()}
+                        >
+                            甲时换局
+                        </button>
+                    ) : (
+                        <button
+                            className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight'
+                            onClick={() => enableHuanJu()}
+                        >
+                            甲时换局
+                        </button>
+                    )
+                ) : (
+                    <button
+                        className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight'
+                        disabled
+                    >
+                        甲时换局
+                    </button>
+                )}
             </div>
         </div>
     );

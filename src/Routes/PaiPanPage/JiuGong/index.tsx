@@ -4,79 +4,588 @@ import Gong from './Gong';
 interface Props {
     panJu: JiuGongXinXi;
     huanJu: JiuGongXinXi;
+    displayHuanJu: boolean;
+    currentZhiShi: string;
+    activeShiGan: string;
 }
 
-const index = ({ panJu, huanJu }: Props) => {
+const index = ({
+    panJu,
+    huanJu,
+    displayHuanJu,
+    currentZhiShi,
+    activeShiGan,
+}: Props) => {
     const adjustThingsInTheMiddle =
-        'flex flex-col items-center justify-evenly text-text relative';
+        'flex flex-col items-center justify-evenly text-text relative h-[31vw] w-[31vw] border-collaps border-solid border-[#886A36] border-[1px]';
+    const liuQinSettings = JSON.parse(
+        localStorage.getItem('qimenSettings')!,
+    ).liuQinSettings;
     return (
-        <div className='flex w-[93vw] flex-col items-center text-[4.5vw]'>
+        <div className='flex w-[93vw] flex-col items-center text-[120%]'>
             <div className='flex flex-row'>
                 <div
                     className={
                         adjustThingsInTheMiddle +
-                        ' h-[31vw] w-[31vw] border-collapse rounded-tl-lg border-[1px] border-l-[2px] border-t-[2px] border-solid border-[#886A36]'
+                        ' rounded-tl-lg border-l-[2px] border-t-[2px]'
                     }
                     id='xun'
                 >
                     <Gong
-                        tianPanGan={panJu.xunGong.tianPanGan}
-                        diPanGan={panJu.xunGong.diPanGan}
-                        tianPanShen={panJu.xunGong.tianPanShen}
-                        diPanShen={panJu.xunGong.diPanShen}
-                        xing={panJu.xunGong.xing}
-                        men={panJu.xunGong.men}
-                        anGan={panJu.xunGong.anGan}
-                        anZhi={panJu.xunGong.anZhi}
-                        tianPanYiKon={panJu.xunGong.tianPanYiKong}
-                        diPanYiKon={panJu.xunGong.diPanYiKong}
-                        gongKong={panJu.xunGong.gongKong}
-                        maXing={panJu.xunGong.maXing}
-                        gongWangShuai={panJu.xunGong.gongWangShuai}
+                        tianPanGan={
+                            displayHuanJu
+                                ? huanJu.xunGong.tianPanGan
+                                : panJu.xunGong.tianPanGan
+                        }
+                        diPanGan={
+                            displayHuanJu
+                                ? huanJu.xunGong.diPanGan
+                                : panJu.xunGong.diPanGan
+                        }
+                        tianPanShen={
+                            displayHuanJu
+                                ? huanJu.xunGong.tianPanShen
+                                : panJu.xunGong.tianPanShen
+                        }
+                        diPanShen={
+                            displayHuanJu
+                                ? huanJu.xunGong.diPanShen
+                                : panJu.xunGong.diPanShen
+                        }
+                        xing={
+                            displayHuanJu
+                                ? huanJu.xunGong.xing
+                                : panJu.xunGong.xing
+                        }
+                        men={
+                            displayHuanJu
+                                ? huanJu.xunGong.men
+                                : panJu.xunGong.men
+                        }
+                        anGan={
+                            displayHuanJu
+                                ? huanJu.xunGong.anGan
+                                : panJu.xunGong.anGan
+                        }
+                        anZhi={
+                            displayHuanJu
+                                ? huanJu.xunGong.anZhi
+                                : panJu.xunGong.anZhi
+                        }
+                        tianPanYiKon={
+                            displayHuanJu
+                                ? huanJu.xunGong.tianPanYiKong
+                                : panJu.xunGong.tianPanYiKong
+                        }
+                        diPanYiKon={
+                            displayHuanJu
+                                ? huanJu.xunGong.diPanYiKong
+                                : panJu.xunGong.diPanYiKong
+                        }
+                        gongKong={
+                            displayHuanJu
+                                ? huanJu.xunGong.gongKong
+                                : panJu.xunGong.gongKong
+                        }
+                        maXing={
+                            displayHuanJu
+                                ? huanJu.xunGong.maXing
+                                : panJu.xunGong.maXing
+                        }
+                        gongWangShuai={
+                            displayHuanJu
+                                ? huanJu.xunGong.gongWangShuai
+                                : panJu.xunGong.gongWangShuai
+                        }
+                        tianPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.xunGong.tianPanGanLiuQin
+                                : panJu.xunGong.tianPanGanLiuQin
+                        }
+                        diPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.xunGong.diPanGanLiuQin
+                                : panJu.xunGong.diPanGanLiuQin
+                        }
+                        tianPanShiShen={
+                            displayHuanJu
+                                ? huanJu.xunGong.tianPanGanShiShen
+                                : panJu.xunGong.tianPanGanShiShen
+                        }
+                        diPanShiShen={
+                            displayHuanJu
+                                ? huanJu.xunGong.diPanGanShiShen
+                                : panJu.xunGong.diPanGanShiShen
+                        }
+                        liuQinSettings={liuQinSettings}
+                        currentZhiShi={currentZhiShi}
+                        activeShiGan={activeShiGan}
+                    />
+                </div>
+                <div className={adjustThingsInTheMiddle + ' border-t-[2px]'}>
+                    <Gong
+                        tianPanGan={
+                            displayHuanJu
+                                ? huanJu.liGong.tianPanGan
+                                : panJu.liGong.tianPanGan
+                        }
+                        diPanGan={
+                            displayHuanJu
+                                ? huanJu.liGong.diPanGan
+                                : panJu.liGong.diPanGan
+                        }
+                        tianPanShen={
+                            displayHuanJu
+                                ? huanJu.liGong.tianPanShen
+                                : panJu.liGong.tianPanShen
+                        }
+                        diPanShen={
+                            displayHuanJu
+                                ? huanJu.liGong.diPanShen
+                                : panJu.liGong.diPanShen
+                        }
+                        xing={
+                            displayHuanJu
+                                ? huanJu.liGong.xing
+                                : panJu.liGong.xing
+                        }
+                        men={
+                            displayHuanJu ? huanJu.liGong.men : panJu.liGong.men
+                        }
+                        anGan={
+                            displayHuanJu
+                                ? huanJu.liGong.anGan
+                                : panJu.liGong.anGan
+                        }
+                        anZhi={
+                            displayHuanJu
+                                ? huanJu.liGong.anZhi
+                                : panJu.liGong.anZhi
+                        }
+                        tianPanYiKon={
+                            displayHuanJu
+                                ? huanJu.liGong.tianPanYiKong
+                                : panJu.liGong.tianPanYiKong
+                        }
+                        diPanYiKon={
+                            displayHuanJu
+                                ? huanJu.liGong.diPanYiKong
+                                : panJu.liGong.diPanYiKong
+                        }
+                        gongKong={
+                            displayHuanJu
+                                ? huanJu.liGong.gongKong
+                                : panJu.liGong.gongKong
+                        }
+                        maXing={
+                            displayHuanJu
+                                ? huanJu.liGong.maXing
+                                : panJu.liGong.maXing
+                        }
+                        gongWangShuai={
+                            displayHuanJu
+                                ? huanJu.liGong.gongWangShuai
+                                : panJu.liGong.gongWangShuai
+                        }
+                        tianPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.liGong.tianPanGanLiuQin
+                                : panJu.liGong.tianPanGanLiuQin
+                        }
+                        diPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.liGong.diPanGanLiuQin
+                                : panJu.liGong.diPanGanLiuQin
+                        }
+                        tianPanShiShen={
+                            displayHuanJu
+                                ? huanJu.liGong.tianPanGanShiShen
+                                : panJu.liGong.tianPanGanShiShen
+                        }
+                        diPanShiShen={
+                            displayHuanJu
+                                ? huanJu.liGong.diPanGanShiShen
+                                : panJu.liGong.diPanGanShiShen
+                        }
+                        liuQinSettings={liuQinSettings}
+                        currentZhiShi={currentZhiShi}
+                        activeShiGan={activeShiGan}
                     />
                 </div>
                 <div
                     className={
                         adjustThingsInTheMiddle +
-                        ' h-[31vw] w-[31vw] border-collapse border-[1px] border-t-[2px] border-solid border-[#886A36]'
+                        ' rounded-tr-lg border-r-[2px] border-t-[2px]'
                     }
                 >
                     <Gong
-                        tianPanGan={panJu.liGong.tianPanGan}
-                        diPanGan={panJu.liGong.diPanGan}
-                        tianPanShen={panJu.liGong.tianPanShen}
-                        diPanShen={panJu.liGong.diPanShen}
-                        xing={panJu.liGong.xing}
-                        men={panJu.liGong.men}
-                        anGan={panJu.liGong.anGan}
-                        anZhi={panJu.liGong.anZhi}
-                        tianPanYiKon={panJu.liGong.tianPanYiKong}
-                        diPanYiKon={panJu.liGong.diPanYiKong}
-                        gongKong={panJu.liGong.gongKong}
-                        maXing={panJu.liGong.maXing}
-                        gongWangShuai={panJu.liGong.gongWangShuai}
+                        tianPanGan={
+                            displayHuanJu
+                                ? huanJu.kunGong.tianPanGan
+                                : panJu.kunGong.tianPanGan
+                        }
+                        diPanGan={
+                            displayHuanJu
+                                ? huanJu.kunGong.diPanGan
+                                : panJu.kunGong.diPanGan
+                        }
+                        tianPanShen={
+                            displayHuanJu
+                                ? huanJu.kunGong.tianPanShen
+                                : panJu.kunGong.tianPanShen
+                        }
+                        diPanShen={
+                            displayHuanJu
+                                ? huanJu.kunGong.diPanShen
+                                : panJu.kunGong.diPanShen
+                        }
+                        xing={
+                            displayHuanJu
+                                ? huanJu.kunGong.xing
+                                : panJu.kunGong.xing
+                        }
+                        men={
+                            displayHuanJu
+                                ? huanJu.kunGong.men
+                                : panJu.kunGong.men
+                        }
+                        anGan={
+                            displayHuanJu
+                                ? huanJu.kunGong.anGan
+                                : panJu.kunGong.anGan
+                        }
+                        anZhi={
+                            displayHuanJu
+                                ? huanJu.kunGong.anZhi
+                                : panJu.kunGong.anZhi
+                        }
+                        tianPanYiKon={
+                            displayHuanJu
+                                ? huanJu.kunGong.tianPanYiKong
+                                : panJu.kunGong.tianPanYiKong
+                        }
+                        diPanYiKon={
+                            displayHuanJu
+                                ? huanJu.kunGong.diPanYiKong
+                                : panJu.kunGong.diPanYiKong
+                        }
+                        gongKong={
+                            displayHuanJu
+                                ? huanJu.kunGong.gongKong
+                                : panJu.kunGong.gongKong
+                        }
+                        maXing={
+                            displayHuanJu
+                                ? huanJu.kunGong.maXing
+                                : panJu.kunGong.maXing
+                        }
+                        gongWangShuai={
+                            displayHuanJu
+                                ? huanJu.kunGong.gongWangShuai
+                                : panJu.kunGong.gongWangShuai
+                        }
+                        tianPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.kunGong.tianPanGanLiuQin
+                                : panJu.kunGong.tianPanGanLiuQin
+                        }
+                        diPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.kunGong.diPanGanLiuQin
+                                : panJu.kunGong.diPanGanLiuQin
+                        }
+                        tianPanShiShen={
+                            displayHuanJu
+                                ? huanJu.kunGong.tianPanGanShiShen
+                                : panJu.kunGong.tianPanGanShiShen
+                        }
+                        diPanShiShen={
+                            displayHuanJu
+                                ? huanJu.kunGong.diPanGanShiShen
+                                : panJu.kunGong.diPanGanShiShen
+                        }
+                        liuQinSettings={liuQinSettings}
+                        currentZhiShi={currentZhiShi}
+                        activeShiGan={activeShiGan}
                     />
                 </div>
-                <div
-                    className={
-                        adjustThingsInTheMiddle +
-                        ' h-[31vw] w-[31vw] border-collapse rounded-tr-lg border-[1px] border-r-[2px] border-t-[2px] border-solid border-[#886A36]'
-                    }
-                >
+            </div>
+            <div className='flex flex-row'>
+                <div className={adjustThingsInTheMiddle + ' border-l-[2px]'}>
                     <Gong
-                        tianPanGan={panJu.kunGong.tianPanGan}
-                        diPanGan={panJu.kunGong.diPanGan}
-                        tianPanShen={panJu.kunGong.tianPanShen}
-                        diPanShen={panJu.kunGong.diPanShen}
-                        xing={panJu.kunGong.xing}
-                        men={panJu.kunGong.men}
-                        anGan={panJu.kunGong.anGan}
-                        anZhi={panJu.kunGong.anZhi}
-                        tianPanYiKon={panJu.kunGong.tianPanYiKong}
-                        diPanYiKon={panJu.kunGong.diPanYiKong}
-                        gongKong={panJu.kunGong.gongKong}
-                        maXing={panJu.kunGong.maXing}
-                        gongWangShuai={panJu.kunGong.gongWangShuai}
+                        tianPanGan={
+                            displayHuanJu
+                                ? huanJu.zhenGong.tianPanGan
+                                : panJu.zhenGong.tianPanGan
+                        }
+                        diPanGan={
+                            displayHuanJu
+                                ? huanJu.zhenGong.diPanGan
+                                : panJu.zhenGong.diPanGan
+                        }
+                        tianPanShen={
+                            displayHuanJu
+                                ? huanJu.zhenGong.tianPanShen
+                                : panJu.zhenGong.tianPanShen
+                        }
+                        diPanShen={
+                            displayHuanJu
+                                ? huanJu.zhenGong.diPanShen
+                                : panJu.zhenGong.diPanShen
+                        }
+                        xing={
+                            displayHuanJu
+                                ? huanJu.zhenGong.xing
+                                : panJu.zhenGong.xing
+                        }
+                        men={
+                            displayHuanJu
+                                ? huanJu.zhenGong.men
+                                : panJu.zhenGong.men
+                        }
+                        anGan={
+                            displayHuanJu
+                                ? huanJu.zhenGong.anGan
+                                : panJu.zhenGong.anGan
+                        }
+                        anZhi={
+                            displayHuanJu
+                                ? huanJu.zhenGong.anZhi
+                                : panJu.zhenGong.anZhi
+                        }
+                        tianPanYiKon={
+                            displayHuanJu
+                                ? huanJu.zhenGong.tianPanYiKong
+                                : panJu.zhenGong.tianPanYiKong
+                        }
+                        diPanYiKon={
+                            displayHuanJu
+                                ? huanJu.zhenGong.diPanYiKong
+                                : panJu.zhenGong.diPanYiKong
+                        }
+                        gongKong={
+                            displayHuanJu
+                                ? huanJu.zhenGong.gongKong
+                                : panJu.zhenGong.gongKong
+                        }
+                        maXing={
+                            displayHuanJu
+                                ? huanJu.zhenGong.maXing
+                                : panJu.zhenGong.maXing
+                        }
+                        gongWangShuai={
+                            displayHuanJu
+                                ? huanJu.zhenGong.gongWangShuai
+                                : panJu.zhenGong.gongWangShuai
+                        }
+                        tianPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.zhenGong.tianPanGanLiuQin
+                                : panJu.zhenGong.tianPanGanLiuQin
+                        }
+                        diPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.zhenGong.diPanGanLiuQin
+                                : panJu.zhenGong.diPanGanLiuQin
+                        }
+                        tianPanShiShen={
+                            displayHuanJu
+                                ? huanJu.zhenGong.tianPanGanShiShen
+                                : panJu.zhenGong.tianPanGanShiShen
+                        }
+                        diPanShiShen={
+                            displayHuanJu
+                                ? huanJu.zhenGong.diPanGanShiShen
+                                : panJu.zhenGong.diPanGanShiShen
+                        }
+                        liuQinSettings={liuQinSettings}
+                        currentZhiShi={currentZhiShi}
+                        activeShiGan={activeShiGan}
+                    />
+                </div>
+                <div className={adjustThingsInTheMiddle}>
+                    <Gong
+                        tianPanGan={
+                            displayHuanJu
+                                ? huanJu.zhongGong.tianPanGan
+                                : panJu.zhongGong.tianPanGan
+                        }
+                        diPanGan={
+                            displayHuanJu
+                                ? huanJu.zhongGong.diPanGan
+                                : panJu.zhongGong.diPanGan
+                        }
+                        tianPanShen={
+                            displayHuanJu
+                                ? huanJu.zhongGong.tianPanShen
+                                : panJu.zhongGong.tianPanShen
+                        }
+                        diPanShen={
+                            displayHuanJu
+                                ? huanJu.zhongGong.diPanShen
+                                : panJu.zhongGong.diPanShen
+                        }
+                        xing={
+                            displayHuanJu
+                                ? huanJu.zhongGong.xing
+                                : panJu.zhongGong.xing
+                        }
+                        men={
+                            displayHuanJu
+                                ? huanJu.zhongGong.men
+                                : panJu.zhongGong.men
+                        }
+                        anGan={
+                            displayHuanJu
+                                ? huanJu.zhongGong.anGan
+                                : panJu.zhongGong.anGan
+                        }
+                        anZhi={
+                            displayHuanJu
+                                ? huanJu.zhongGong.anZhi
+                                : panJu.zhongGong.anZhi
+                        }
+                        tianPanYiKon={
+                            displayHuanJu
+                                ? huanJu.zhongGong.tianPanYiKong
+                                : panJu.zhongGong.tianPanYiKong
+                        }
+                        diPanYiKon={
+                            displayHuanJu
+                                ? huanJu.zhongGong.diPanYiKong
+                                : panJu.zhongGong.diPanYiKong
+                        }
+                        gongKong={
+                            displayHuanJu
+                                ? huanJu.zhongGong.gongKong
+                                : panJu.zhongGong.gongKong
+                        }
+                        maXing={
+                            displayHuanJu
+                                ? huanJu.zhongGong.maXing
+                                : panJu.zhongGong.maXing
+                        }
+                        gongWangShuai={
+                            displayHuanJu
+                                ? huanJu.zhongGong.gongWangShuai
+                                : panJu.zhongGong.gongWangShuai
+                        }
+                        tianPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.zhongGong.tianPanGanLiuQin
+                                : panJu.zhongGong.tianPanGanLiuQin
+                        }
+                        diPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.zhongGong.diPanGanLiuQin
+                                : panJu.zhongGong.diPanGanLiuQin
+                        }
+                        tianPanShiShen={
+                            displayHuanJu
+                                ? huanJu.zhongGong.tianPanGanShiShen
+                                : panJu.zhongGong.tianPanGanShiShen
+                        }
+                        diPanShiShen={
+                            displayHuanJu
+                                ? huanJu.zhongGong.diPanGanShiShen
+                                : panJu.zhongGong.diPanGanShiShen
+                        }
+                        liuQinSettings={liuQinSettings}
+                        currentZhiShi={currentZhiShi}
+                        activeShiGan={activeShiGan}
+                    />
+                </div>
+
+                <div className={adjustThingsInTheMiddle + ' border-r-[2px]'}>
+                    <Gong
+                        tianPanGan={
+                            displayHuanJu
+                                ? huanJu.duiGong.tianPanGan
+                                : panJu.duiGong.tianPanGan
+                        }
+                        diPanGan={
+                            displayHuanJu
+                                ? huanJu.duiGong.diPanGan
+                                : panJu.duiGong.diPanGan
+                        }
+                        tianPanShen={
+                            displayHuanJu
+                                ? huanJu.duiGong.tianPanShen
+                                : panJu.duiGong.tianPanShen
+                        }
+                        diPanShen={
+                            displayHuanJu
+                                ? huanJu.duiGong.diPanShen
+                                : panJu.duiGong.diPanShen
+                        }
+                        xing={
+                            displayHuanJu
+                                ? huanJu.duiGong.xing
+                                : panJu.duiGong.xing
+                        }
+                        men={
+                            displayHuanJu
+                                ? huanJu.duiGong.men
+                                : panJu.duiGong.men
+                        }
+                        anGan={
+                            displayHuanJu
+                                ? huanJu.duiGong.anGan
+                                : panJu.duiGong.anGan
+                        }
+                        anZhi={
+                            displayHuanJu
+                                ? huanJu.duiGong.anZhi
+                                : panJu.duiGong.anZhi
+                        }
+                        tianPanYiKon={
+                            displayHuanJu
+                                ? huanJu.duiGong.tianPanYiKong
+                                : panJu.duiGong.tianPanYiKong
+                        }
+                        diPanYiKon={
+                            displayHuanJu
+                                ? huanJu.duiGong.diPanYiKong
+                                : panJu.duiGong.diPanYiKong
+                        }
+                        gongKong={
+                            displayHuanJu
+                                ? huanJu.duiGong.gongKong
+                                : panJu.duiGong.gongKong
+                        }
+                        maXing={
+                            displayHuanJu
+                                ? huanJu.duiGong.maXing
+                                : panJu.duiGong.maXing
+                        }
+                        gongWangShuai={
+                            displayHuanJu
+                                ? huanJu.duiGong.gongWangShuai
+                                : panJu.duiGong.gongWangShuai
+                        }
+                        tianPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.duiGong.tianPanGanLiuQin
+                                : panJu.duiGong.tianPanGanLiuQin
+                        }
+                        diPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.duiGong.diPanGanLiuQin
+                                : panJu.duiGong.diPanGanLiuQin
+                        }
+                        tianPanShiShen={
+                            displayHuanJu
+                                ? huanJu.duiGong.tianPanGanShiShen
+                                : panJu.duiGong.tianPanGanShiShen
+                        }
+                        diPanShiShen={
+                            displayHuanJu
+                                ? huanJu.duiGong.diPanGanShiShen
+                                : panJu.duiGong.diPanGanShiShen
+                        }
+                        liuQinSettings={liuQinSettings}
+                        currentZhiShi={currentZhiShi}
+                        activeShiGan={activeShiGan}
                     />
                 </div>
             </div>
@@ -84,138 +593,289 @@ const index = ({ panJu, huanJu }: Props) => {
                 <div
                     className={
                         adjustThingsInTheMiddle +
-                        ' h-[31vw] w-[31vw] border-collapse border-[1px] border-l-[2px] border-solid border-[#886A36]'
+                        ' rounded-bl-lg border-b-[2px] border-l-[2px]'
                     }
                 >
                     <Gong
-                        tianPanGan={panJu.zhenGong.tianPanGan}
-                        diPanGan={panJu.zhenGong.diPanGan}
-                        tianPanShen={panJu.zhenGong.tianPanShen}
-                        diPanShen={panJu.zhenGong.diPanShen}
-                        xing={panJu.zhenGong.xing}
-                        men={panJu.zhenGong.men}
-                        anGan={panJu.zhenGong.anGan}
-                        anZhi={panJu.zhenGong.anZhi}
-                        tianPanYiKon={panJu.zhenGong.tianPanYiKong}
-                        diPanYiKon={panJu.zhenGong.diPanYiKong}
-                        gongKong={panJu.zhenGong.gongKong}
-                        maXing={panJu.zhenGong.maXing}
-                        gongWangShuai={panJu.zhenGong.gongWangShuai}
+                        tianPanGan={
+                            displayHuanJu
+                                ? huanJu.genGong.tianPanGan
+                                : panJu.genGong.tianPanGan
+                        }
+                        diPanGan={
+                            displayHuanJu
+                                ? huanJu.genGong.diPanGan
+                                : panJu.genGong.diPanGan
+                        }
+                        tianPanShen={
+                            displayHuanJu
+                                ? huanJu.genGong.tianPanShen
+                                : panJu.genGong.tianPanShen
+                        }
+                        diPanShen={
+                            displayHuanJu
+                                ? huanJu.genGong.diPanShen
+                                : panJu.genGong.diPanShen
+                        }
+                        xing={
+                            displayHuanJu
+                                ? huanJu.genGong.xing
+                                : panJu.genGong.xing
+                        }
+                        men={
+                            displayHuanJu
+                                ? huanJu.genGong.men
+                                : panJu.genGong.men
+                        }
+                        anGan={
+                            displayHuanJu
+                                ? huanJu.genGong.anGan
+                                : panJu.genGong.anGan
+                        }
+                        anZhi={
+                            displayHuanJu
+                                ? huanJu.genGong.anZhi
+                                : panJu.genGong.anZhi
+                        }
+                        tianPanYiKon={
+                            displayHuanJu
+                                ? huanJu.genGong.tianPanYiKong
+                                : panJu.genGong.tianPanYiKong
+                        }
+                        diPanYiKon={
+                            displayHuanJu
+                                ? huanJu.genGong.diPanYiKong
+                                : panJu.genGong.diPanYiKong
+                        }
+                        gongKong={
+                            displayHuanJu
+                                ? huanJu.genGong.gongKong
+                                : panJu.genGong.gongKong
+                        }
+                        maXing={
+                            displayHuanJu
+                                ? huanJu.genGong.maXing
+                                : panJu.genGong.maXing
+                        }
+                        gongWangShuai={
+                            displayHuanJu
+                                ? huanJu.genGong.gongWangShuai
+                                : panJu.genGong.gongWangShuai
+                        }
+                        tianPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.genGong.tianPanGanLiuQin
+                                : panJu.genGong.tianPanGanLiuQin
+                        }
+                        diPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.genGong.diPanGanLiuQin
+                                : panJu.genGong.diPanGanLiuQin
+                        }
+                        tianPanShiShen={
+                            displayHuanJu
+                                ? huanJu.genGong.tianPanGanShiShen
+                                : panJu.genGong.tianPanGanShiShen
+                        }
+                        diPanShiShen={
+                            displayHuanJu
+                                ? huanJu.genGong.diPanGanShiShen
+                                : panJu.genGong.diPanGanShiShen
+                        }
+                        liuQinSettings={liuQinSettings}
+                        currentZhiShi={currentZhiShi}
+                        activeShiGan={activeShiGan}
                     />
                 </div>
-                <div
-                    className={
-                        adjustThingsInTheMiddle +
-                        ' h-[31vw] w-[31vw] border-collapse border-[1px] border-solid border-[#886A36]'
-                    }
-                >
+
+                <div className={adjustThingsInTheMiddle + ' border-b-[2px]'}>
                     <Gong
-                        tianPanGan={panJu.zhongGong.tianPanGan}
-                        diPanGan={panJu.zhongGong.diPanGan}
-                        tianPanShen={panJu.zhongGong.tianPanShen}
-                        diPanShen={panJu.zhongGong.diPanShen}
-                        xing={panJu.zhongGong.xing}
-                        men={panJu.zhongGong.men}
-                        anGan={panJu.zhongGong.anGan}
-                        anZhi={panJu.zhongGong.anZhi}
-                        tianPanYiKon={panJu.zhongGong.tianPanYiKong}
-                        diPanYiKon={panJu.zhongGong.diPanYiKong}
-                        gongKong={panJu.zhongGong.gongKong}
-                        maXing={panJu.zhongGong.maXing}
-                        gongWangShuai={panJu.zhongGong.gongWangShuai}
+                        tianPanGan={
+                            displayHuanJu
+                                ? huanJu.kanGong.tianPanGan
+                                : panJu.kanGong.tianPanGan
+                        }
+                        diPanGan={
+                            displayHuanJu
+                                ? huanJu.kanGong.diPanGan
+                                : panJu.kanGong.diPanGan
+                        }
+                        tianPanShen={
+                            displayHuanJu
+                                ? huanJu.kanGong.tianPanShen
+                                : panJu.kanGong.tianPanShen
+                        }
+                        diPanShen={
+                            displayHuanJu
+                                ? huanJu.kanGong.diPanShen
+                                : panJu.kanGong.diPanShen
+                        }
+                        xing={
+                            displayHuanJu
+                                ? huanJu.kanGong.xing
+                                : panJu.kanGong.xing
+                        }
+                        men={
+                            displayHuanJu
+                                ? huanJu.kanGong.men
+                                : panJu.kanGong.men
+                        }
+                        anGan={
+                            displayHuanJu
+                                ? huanJu.kanGong.anGan
+                                : panJu.kanGong.anGan
+                        }
+                        anZhi={
+                            displayHuanJu
+                                ? huanJu.kanGong.anZhi
+                                : panJu.kanGong.anZhi
+                        }
+                        tianPanYiKon={
+                            displayHuanJu
+                                ? huanJu.kanGong.tianPanYiKong
+                                : panJu.kanGong.tianPanYiKong
+                        }
+                        diPanYiKon={
+                            displayHuanJu
+                                ? huanJu.kanGong.diPanYiKong
+                                : panJu.kanGong.diPanYiKong
+                        }
+                        gongKong={
+                            displayHuanJu
+                                ? huanJu.kanGong.gongKong
+                                : panJu.kanGong.gongKong
+                        }
+                        maXing={
+                            displayHuanJu
+                                ? huanJu.kanGong.maXing
+                                : panJu.kanGong.maXing
+                        }
+                        gongWangShuai={
+                            displayHuanJu
+                                ? huanJu.kanGong.gongWangShuai
+                                : panJu.kanGong.gongWangShuai
+                        }
+                        tianPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.kanGong.tianPanGanLiuQin
+                                : panJu.kanGong.tianPanGanLiuQin
+                        }
+                        diPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.kanGong.diPanGanLiuQin
+                                : panJu.kanGong.diPanGanLiuQin
+                        }
+                        tianPanShiShen={
+                            displayHuanJu
+                                ? huanJu.kanGong.tianPanGanShiShen
+                                : panJu.kanGong.tianPanGanShiShen
+                        }
+                        diPanShiShen={
+                            displayHuanJu
+                                ? huanJu.kanGong.diPanGanShiShen
+                                : panJu.kanGong.diPanGanShiShen
+                        }
+                        liuQinSettings={liuQinSettings}
+                        currentZhiShi={currentZhiShi}
+                        activeShiGan={activeShiGan}
                     />
                 </div>
 
                 <div
                     className={
                         adjustThingsInTheMiddle +
-                        ' h-[31vw] w-[31vw] border-collapse border-[1px] border-r-[2px] border-solid border-[#886A36]'
+                        ' rounded-br-lg border-b-[2px] border-r-[2px]'
                     }
                 >
                     <Gong
-                        tianPanGan={panJu.duiGong.tianPanGan}
-                        diPanGan={panJu.duiGong.diPanGan}
-                        tianPanShen={panJu.duiGong.tianPanShen}
-                        diPanShen={panJu.duiGong.diPanShen}
-                        xing={panJu.duiGong.xing}
-                        men={panJu.duiGong.men}
-                        anGan={panJu.duiGong.anGan}
-                        anZhi={panJu.duiGong.anZhi}
-                        tianPanYiKon={panJu.duiGong.tianPanYiKong}
-                        diPanYiKon={panJu.duiGong.diPanYiKong}
-                        gongKong={panJu.duiGong.gongKong}
-                        maXing={panJu.duiGong.maXing}
-                        gongWangShuai={panJu.duiGong.gongWangShuai}
-                    />
-                </div>
-            </div>
-            <div className='flex flex-row'>
-                <div
-                    className={
-                        adjustThingsInTheMiddle +
-                        ' h-[31vw] w-[31vw] border-collapse rounded-bl-lg border-[1px] border-b-[2px] border-l-[2px] border-solid border-[#886A36]'
-                    }
-                >
-                    <Gong
-                        tianPanGan={panJu.genGong.tianPanGan}
-                        diPanGan={panJu.genGong.diPanGan}
-                        tianPanShen={panJu.genGong.tianPanShen}
-                        diPanShen={panJu.genGong.diPanShen}
-                        xing={panJu.genGong.xing}
-                        men={panJu.genGong.men}
-                        anGan={panJu.genGong.anGan}
-                        anZhi={panJu.genGong.anZhi}
-                        tianPanYiKon={panJu.genGong.tianPanYiKong}
-                        diPanYiKon={panJu.genGong.diPanYiKong}
-                        gongKong={panJu.genGong.gongKong}
-                        maXing={panJu.genGong.maXing}
-                        gongWangShuai={panJu.genGong.gongWangShuai}
-                    />
-                </div>
-
-                <div
-                    className={
-                        adjustThingsInTheMiddle +
-                        ' h-[31vw] w-[31vw] border-collapse border-[1px] border-b-[2px] border-solid border-[#886A36]'
-                    }
-                >
-                    <Gong
-                        tianPanGan={panJu.kanGong.tianPanGan}
-                        diPanGan={panJu.kanGong.diPanGan}
-                        tianPanShen={panJu.kanGong.tianPanShen}
-                        diPanShen={panJu.kanGong.diPanShen}
-                        xing={panJu.kanGong.xing}
-                        men={panJu.kanGong.men}
-                        anGan={panJu.kanGong.anGan}
-                        anZhi={panJu.kanGong.anZhi}
-                        tianPanYiKon={panJu.kanGong.tianPanYiKong}
-                        diPanYiKon={panJu.kanGong.diPanYiKong}
-                        gongKong={panJu.kanGong.gongKong}
-                        maXing={panJu.kanGong.maXing}
-                        gongWangShuai={panJu.kanGong.gongWangShuai}
-                    />
-                </div>
-
-                <div
-                    className={
-                        adjustThingsInTheMiddle +
-                        ' h-[31vw] w-[31vw] border-collapse rounded-br-lg border-[1px] border-b-[2px] border-r-[2px] border-solid border-[#886A36]'
-                    }
-                >
-                    <Gong
-                        tianPanGan={panJu.qianGong.tianPanGan}
-                        diPanGan={panJu.qianGong.diPanGan}
-                        tianPanShen={panJu.qianGong.tianPanShen}
-                        diPanShen={panJu.qianGong.diPanShen}
-                        xing={panJu.qianGong.xing}
-                        men={panJu.qianGong.men}
-                        anGan={panJu.qianGong.anGan}
-                        anZhi={panJu.qianGong.anZhi}
-                        tianPanYiKon={panJu.qianGong.tianPanYiKong}
-                        diPanYiKon={panJu.qianGong.diPanYiKong}
-                        gongKong={panJu.qianGong.gongKong}
-                        maXing={panJu.qianGong.maXing}
-                        gongWangShuai={panJu.qianGong.gongWangShuai}
+                        tianPanGan={
+                            displayHuanJu
+                                ? huanJu.qianGong.tianPanGan
+                                : panJu.qianGong.tianPanGan
+                        }
+                        diPanGan={
+                            displayHuanJu
+                                ? huanJu.qianGong.diPanGan
+                                : panJu.qianGong.diPanGan
+                        }
+                        tianPanShen={
+                            displayHuanJu
+                                ? huanJu.qianGong.tianPanShen
+                                : panJu.qianGong.tianPanShen
+                        }
+                        diPanShen={
+                            displayHuanJu
+                                ? huanJu.qianGong.diPanShen
+                                : panJu.qianGong.diPanShen
+                        }
+                        xing={
+                            displayHuanJu
+                                ? huanJu.qianGong.xing
+                                : panJu.qianGong.xing
+                        }
+                        men={
+                            displayHuanJu
+                                ? huanJu.qianGong.men
+                                : panJu.qianGong.men
+                        }
+                        anGan={
+                            displayHuanJu
+                                ? huanJu.qianGong.anGan
+                                : panJu.qianGong.anGan
+                        }
+                        anZhi={
+                            displayHuanJu
+                                ? huanJu.qianGong.anZhi
+                                : panJu.qianGong.anZhi
+                        }
+                        tianPanYiKon={
+                            displayHuanJu
+                                ? huanJu.qianGong.tianPanYiKong
+                                : panJu.qianGong.tianPanYiKong
+                        }
+                        diPanYiKon={
+                            displayHuanJu
+                                ? huanJu.qianGong.diPanYiKong
+                                : panJu.qianGong.diPanYiKong
+                        }
+                        gongKong={
+                            displayHuanJu
+                                ? huanJu.qianGong.gongKong
+                                : panJu.qianGong.gongKong
+                        }
+                        maXing={
+                            displayHuanJu
+                                ? huanJu.qianGong.maXing
+                                : panJu.qianGong.maXing
+                        }
+                        gongWangShuai={
+                            displayHuanJu
+                                ? huanJu.qianGong.gongWangShuai
+                                : panJu.qianGong.gongWangShuai
+                        }
+                        tianPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.qianGong.tianPanGanLiuQin
+                                : panJu.qianGong.tianPanGanLiuQin
+                        }
+                        diPanLiuQin={
+                            displayHuanJu
+                                ? huanJu.qianGong.diPanGanLiuQin
+                                : panJu.qianGong.diPanGanLiuQin
+                        }
+                        tianPanShiShen={
+                            displayHuanJu
+                                ? huanJu.qianGong.tianPanGanShiShen
+                                : panJu.qianGong.tianPanGanShiShen
+                        }
+                        diPanShiShen={
+                            displayHuanJu
+                                ? huanJu.qianGong.diPanGanShiShen
+                                : panJu.qianGong.diPanGanShiShen
+                        }
+                        liuQinSettings={liuQinSettings}
+                        currentZhiShi={currentZhiShi}
+                        activeShiGan={activeShiGan}
                     />
                 </div>
             </div>

@@ -8,6 +8,14 @@ import { PanJuInformation } from './interfaces';
 
 function App() {
     const [activePageIndex, setActivePage] = useState('home');
+    const [displayHuanJu, setDisplayHuanJu] = useState(false);
+    const enableHuanJu = () => {
+        setDisplayHuanJu(true);
+    };
+    const disableHuanJu = () => {
+        setDisplayHuanJu(false);
+    };
+
     const updateActivePage = (page: string) => {
         setActivePage(page);
     };
@@ -33,7 +41,14 @@ function App() {
                 />
                 <Route
                     path='/paipan'
-                    element={<PaiPanPage panJuInfo={panJu} />}
+                    element={
+                        <PaiPanPage
+                            panJuInfo={panJu}
+                            displayHuanJu={displayHuanJu}
+                            enableHuanJu={enableHuanJu}
+                            disableHuanJu={disableHuanJu}
+                        />
+                    }
                 />
                 <Route
                     path='/settings'
@@ -84,6 +99,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -119,6 +138,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -154,6 +177,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -189,6 +216,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -224,6 +255,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -259,6 +294,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -294,6 +333,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -329,6 +372,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -364,6 +411,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -401,6 +452,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -436,6 +491,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -471,6 +530,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -506,6 +569,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -541,6 +608,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -576,6 +647,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -611,6 +686,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -646,6 +725,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',
@@ -681,6 +764,10 @@ function initializePanJu(): PanJuInformation {
                 anGan: '',
                 anZhi: '',
                 zhengGe: [],
+                tianPanGanLiuQin: '',
+                diPanGanLiuQin: '',
+                tianPanGanShiShen: '',
+                diPanGanShiShen: '',
                 fuGe: {
                     ganGong: '',
                     menGong: '',

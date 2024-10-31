@@ -54,6 +54,10 @@ export interface GongWei {
     anGan: string;
     anZhi: string;
     zhengGe: string[];
+    tianPanGanLiuQin: string;
+    diPanGanLiuQin: string;
+    tianPanGanShiShen: string;
+    diPanGanShiShen: string;
     fuGe: {
         ganGong: string;
         menGong: string;
