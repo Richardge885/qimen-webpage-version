@@ -1,4 +1,4 @@
-import { PanJuInformation } from '../../../../interfaces';
+import { PanJuInformation } from '../../../interfaces';
 import ModalBox from './ModalBox';
 
 interface Props {
@@ -27,7 +27,7 @@ interface Props {
     };
 }
 
-const OverLay = ({
+const Modal = ({
     modalState,
     handleCloseModal,
     updateActivePage,
@@ -58,4 +58,4 @@ const OverLay = ({
     );
 };
 
-export default OverLay;
+export default Modal;

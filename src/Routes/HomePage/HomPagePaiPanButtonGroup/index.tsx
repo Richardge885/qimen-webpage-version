@@ -36,15 +36,15 @@ const HomePagePaiPanButtonGroup = ({
 
     return (
         <div className='flex h-[40vh] flex-col items-center justify-center gap-10'>
+            <HomePageChooseMethodButton
+                style={buttonStyle}
+                openModal={openModal}
+            />
             <HomePageCurrentTimeButton
                 style={buttonStyle}
                 paiPanInfo={paiPanInfo}
                 updateActivePage={updateActivePage}
                 updatePanJu={updatePanJu}
-            />
-            <HomePageChooseMethodButton
-                style={buttonStyle}
-                openModal={openModal}
             />
         </div>
     );

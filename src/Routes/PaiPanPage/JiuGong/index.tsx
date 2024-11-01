@@ -7,6 +7,9 @@ interface Props {
     displayHuanJu: boolean;
     currentZhiShi: string;
     activeShiGan: string;
+    openModal: () => void;
+    updateSelectGong: (gongId: string) => void;
+    resetSelectedInfo: () => void;
 }
 
 const index = ({
@@ -15,12 +18,23 @@ const index = ({
     displayHuanJu,
     currentZhiShi,
     activeShiGan,
+    openModal,
+    updateSelectGong,
+    resetSelectedInfo,
 }: Props) => {
     const adjustThingsInTheMiddle =
         'flex flex-col items-center justify-evenly text-text relative h-[31vw] w-[31vw] border-collaps border-solid border-[#886A36] border-[1px]';
     const liuQinSettings = JSON.parse(
         localStorage.getItem('qimenSettings')!,
     ).displayLiuQin;
+
+    // 宫位点击
+    const handleClickGong = (id: string) => {
+        updateSelectGong(id);
+        resetSelectedInfo();
+        openModal();
+    };
+
     return (
         <div className='flex w-[93vw] flex-col items-center text-[120%]'>
             <div className='flex flex-row'>
@@ -29,7 +43,7 @@ const index = ({
                         adjustThingsInTheMiddle +
                         ' rounded-tl-lg border-l-[2px] border-t-[2px]'
                     }
-                    id='xun'
+                    onClick={() => handleClickGong('巽')}
                 >
                     <Gong
                         tianPanGan={
@@ -122,7 +136,10 @@ const index = ({
                         activeShiGan={activeShiGan}
                     />
                 </div>
-                <div className={adjustThingsInTheMiddle + ' border-t-[2px]'}>
+                <div
+                    className={adjustThingsInTheMiddle + ' border-t-[2px]'}
+                    onClick={() => handleClickGong('离')}
+                >
                     <Gong
                         tianPanGan={
                             displayHuanJu
@@ -217,6 +234,7 @@ const index = ({
                         adjustThingsInTheMiddle +
                         ' rounded-tr-lg border-r-[2px] border-t-[2px]'
                     }
+                    onClick={() => handleClickGong('坤')}
                 >
                     <Gong
                         tianPanGan={
@@ -311,7 +329,10 @@ const index = ({
                 </div>
             </div>
             <div className='flex flex-row'>
-                <div className={adjustThingsInTheMiddle + ' border-l-[2px]'}>
+                <div
+                    className={adjustThingsInTheMiddle + ' border-l-[2px]'}
+                    onClick={() => handleClickGong('震')}
+                >
                     <Gong
                         tianPanGan={
                             displayHuanJu
@@ -403,7 +424,10 @@ const index = ({
                         activeShiGan={activeShiGan}
                     />
                 </div>
-                <div className={adjustThingsInTheMiddle}>
+                <div
+                    className={adjustThingsInTheMiddle}
+                    onClick={() => handleClickGong('中')}
+                >
                     <Gong
                         tianPanGan={
                             displayHuanJu
@@ -495,8 +519,10 @@ const index = ({
                         activeShiGan={activeShiGan}
                     />
                 </div>
-
-                <div className={adjustThingsInTheMiddle + ' border-r-[2px]'}>
+                <div
+                    className={adjustThingsInTheMiddle + ' border-r-[2px]'}
+                    onClick={() => handleClickGong('兑')}
+                >
                     <Gong
                         tianPanGan={
                             displayHuanJu
@@ -595,6 +621,7 @@ const index = ({
                         adjustThingsInTheMiddle +
                         ' rounded-bl-lg border-b-[2px] border-l-[2px]'
                     }
+                    onClick={() => handleClickGong('艮')}
                 >
                     <Gong
                         tianPanGan={
@@ -687,8 +714,10 @@ const index = ({
                         activeShiGan={activeShiGan}
                     />
                 </div>
-
-                <div className={adjustThingsInTheMiddle + ' border-b-[2px]'}>
+                <div
+                    className={adjustThingsInTheMiddle + ' border-b-[2px]'}
+                    onClick={() => handleClickGong('坎')}
+                >
                     <Gong
                         tianPanGan={
                             displayHuanJu
@@ -780,12 +809,12 @@ const index = ({
                         activeShiGan={activeShiGan}
                     />
                 </div>
-
                 <div
                     className={
                         adjustThingsInTheMiddle +
                         ' rounded-br-lg border-b-[2px] border-r-[2px]'
                     }
+                    onClick={() => handleClickGong('乾')}
                 >
                     <Gong
                         tianPanGan={

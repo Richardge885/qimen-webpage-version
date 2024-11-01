@@ -32,14 +32,14 @@ const index = ({
                 {huanJuExist ? (
                     displayHuanJu ? (
                         <button
-                            className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight'
+                            className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight disabled:line-through'
                             onClick={() => disableHuanJu()}
                         >
                             甲时换局
                         </button>
                     ) : (
                         <button
-                            className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight'
+                            className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight disabled:line-through'
                             onClick={() => enableHuanJu()}
                         >
                             甲时换局
@@ -47,7 +47,7 @@ const index = ({
                     )
                 ) : (
                     <button
-                        className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight'
+                        className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight disabled:line-through'
                         disabled
                     >
                         甲时换局

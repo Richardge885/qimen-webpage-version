@@ -30,7 +30,7 @@ const index = ({ timeInformation, zhiFu, zhiShi, xunShou }: Props) => {
     );
     return (
         <div className='flex flex-col items-center justify-center'>
-            <div className='flex w-[93vw] flex-row items-center justify-between pb-2 pt-4'>
+            <div className='flex w-[93vw] flex-row items-center justify-between pb-2 pt-1'>
                 <TimeData
                     year={timeInformation.year}
                     month={timeInformation.month}

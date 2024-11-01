@@ -1,7 +1,7 @@
 import { paipan } from 'qimen-mingfa';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
-import { PanJuInformation } from '../../../../interfaces';
+import { PanJuInformation } from '../../../interfaces';
 
 interface Props {
     modalState: boolean;

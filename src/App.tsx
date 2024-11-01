@@ -74,6 +74,7 @@ function App() {
             <NavigationBar
                 activePage={activePageIndex}
                 setActivePage={updateActivePage}
+                disableHuanJu={disableHuanJu}
             />
         </div>
     );

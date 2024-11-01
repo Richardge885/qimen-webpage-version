@@ -6,15 +6,17 @@ import { Link } from 'react-router-dom';
 interface Props {
     activePage: string;
     setActivePage: (page: string) => void;
+    disableHuanJu: () => void;
 }
 
-const NavigationBar = ({ activePage, setActivePage }: Props) => {
+const NavigationBar = ({ activePage, setActivePage, disableHuanJu }: Props) => {
     return (
         <div className='absolute bottom-0 flex h-[4rem] w-screen flex-row items-center justify-around bg-red sm:rounded-tl-[20px] sm:rounded-tr-[20px]'>
             <Link
                 to={'/'}
                 onClick={() => {
                     setActivePage('home');
+                    disableHuanJu();
                 }}
             >
                 <GoHome
@@ -29,6 +31,7 @@ const NavigationBar = ({ activePage, setActivePage }: Props) => {
                 to={'/paipan'}
                 onClick={() => {
                     setActivePage('paipan');
+                    disableHuanJu();
                 }}
             >
                 <CgHashtag
@@ -43,6 +46,7 @@ const NavigationBar = ({ activePage, setActivePage }: Props) => {
                 to={'/settings'}
                 onClick={() => {
                     setActivePage('settings');
+                    disableHuanJu();
                 }}
             >
                 <IoSettingsOutline

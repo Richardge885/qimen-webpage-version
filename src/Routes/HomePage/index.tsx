@@ -1,7 +1,7 @@
 import HomePagePaiPanButtonGroup from './HomPagePaiPanButtonGroup';
 import TimeInput from './TimeInput';
 import Title from '../../assets/Title.svg?react';
-import OverLay from './Modal/Overlay';
+import Modal from './Modal';
 import { PanJuInformation } from '../../interfaces';
 import { useState } from 'react';
 import HomePageSelectionInput from './HomePageSelectionInput';
@@ -94,7 +94,7 @@ const HomePage = ({
 
     return (
         <div className='flex h-screen flex-col items-center justify-center gap-[1rem] pb-16'>
-            <OverLay
+            <Modal
                 modalState={modalState}
                 handleCloseModal={closeModal}
                 paiPanInfo={paiPanInfo}
