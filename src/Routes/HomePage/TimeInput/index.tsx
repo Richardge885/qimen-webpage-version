@@ -1,5 +1,5 @@
 import { FaArrowRotateLeft } from 'react-icons/fa6';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 interface Props {
     updateYear: (updateNumber: number) => void;
@@ -7,6 +7,9 @@ interface Props {
     updateDay: (updateNumber: number) => void;
     updateHour: (updateNumber: number) => void;
     updateMinute: (updateNumber: number) => void;
+    getCurrentTimeForInputTag: () => string;
+    setInputTime: (time: string) => void;
+    inputTime: string;
 }
 
 const TimeInput = ({
@@ -15,19 +18,10 @@ const TimeInput = ({
     updateDay,
     updateHour,
     updateMinute,
+    getCurrentTimeForInputTag,
+    setInputTime,
+    inputTime,
 }: Props) => {
-    const getCurrentTimeForInputTag = () => {
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-        const day = String(now.getDate()).padStart(2, '0');
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        return `${year}-${month}-${day}T${hours}:${minutes}`;
-    };
-
-    const [inputTime, setInputTime] = useState(getCurrentTimeForInputTag());
-
     const handleBackToCurrentTime = () => {
         const currentTime = getCurrentTimeForInputTag();
         setInputTime(currentTime);

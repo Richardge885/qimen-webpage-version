@@ -20,7 +20,7 @@ const index = ({
         'flex flex-col items-center justify-evenly text-text relative h-[31vw] w-[31vw] border-collaps border-solid border-[#886A36] border-[1px]';
     const liuQinSettings = JSON.parse(
         localStorage.getItem('qimenSettings')!,
-    ).liuQinSettings;
+    ).displayLiuQin;
     return (
         <div className='flex w-[93vw] flex-col items-center text-[120%]'>
             <div className='flex flex-row'>

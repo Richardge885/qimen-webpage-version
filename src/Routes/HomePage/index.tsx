@@ -9,6 +9,9 @@ import HomePageSelectionInput from './HomePageSelectionInput';
 interface Props {
     updatePanJu: (panJuInfo: PanJuInformation) => void;
     updateActivePage: (page: string) => void;
+    getCurrentTimeForInputTag: () => string;
+    setInputTime: (time: string) => void;
+    inputTime: string;
 }
 
 /**
@@ -31,7 +34,13 @@ interface Props {
  * 如果baoshuMethod = '' 和 baoshu == 0 则使用 ziXuanJu
  */
 
-const HomePage = ({ updatePanJu, updateActivePage }: Props) => {
+const HomePage = ({
+    updatePanJu,
+    updateActivePage,
+    getCurrentTimeForInputTag,
+    setInputTime,
+    inputTime,
+}: Props) => {
     const settings = JSON.parse(localStorage.getItem('qimenSettings')!);
     const [modalState, setModalState] = useState(false);
 
@@ -102,6 +111,9 @@ const HomePage = ({ updatePanJu, updateActivePage }: Props) => {
                     updateDay={updateDay}
                     updateHour={updateHour}
                     updateMinute={updateMinute}
+                    getCurrentTimeForInputTag={getCurrentTimeForInputTag}
+                    setInputTime={setInputTime}
+                    inputTime={inputTime}
                 />
                 <HomePageSelectionInput updateZiXuanJu={updateZiXuanJu} />
             </div>

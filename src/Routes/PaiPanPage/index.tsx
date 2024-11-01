@@ -45,7 +45,7 @@ const index = ({
                 panJu={panJuInfo.panJuResult}
                 huanJu={panJuInfo.huanJu}
                 displayHuanJu={displayHuanJu}
-                currentZhiShi={panJuInfo.zhiShi}
+                currentZhiShi={panJuInfo.zhiShi.charAt(0)}
                 activeShiGan={activeShiGan(panJuInfo.allTimeInformation.shizhu)}
             />
             <BottomSection

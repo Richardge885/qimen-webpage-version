@@ -15,6 +15,17 @@ function App() {
     const disableHuanJu = () => {
         setDisplayHuanJu(false);
     };
+    const getCurrentTimeForInputTag = () => {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    };
+
+    const [inputTime, setInputTime] = useState(getCurrentTimeForInputTag());
 
     const updateActivePage = (page: string) => {
         setActivePage(page);
@@ -36,6 +47,11 @@ function App() {
                         <HomePage
                             updatePanJu={updatePanJu}
                             updateActivePage={updateActivePage}
+                            getCurrentTimeForInputTag={
+                                getCurrentTimeForInputTag
+                            }
+                            setInputTime={setInputTime}
+                            inputTime={inputTime}
                         />
                     }
                 />

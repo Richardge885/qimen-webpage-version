@@ -63,7 +63,15 @@ const Gong = ({
             <span className='absolute bottom-[1vw] right-[1vw] text-[3.6vw]'>
                 {gongWangShuai}
             </span>
-            <span className={tianPanShen === '值符' ? 'text-[#E94C43]' : ''}>
+            <span
+                className={
+                    tianPanShen === '值符'
+                        ? 'text-[#E94C43]'
+                        : tianPanShen === '符'
+                          ? 'text-[#E94C43]'
+                          : ''
+                }
+            >
                 {tianPanShen}
             </span>
             <div className='flex w-[90%] flex-row items-center justify-evenly'>
@@ -93,7 +101,11 @@ const Gong = ({
             </div>
             <div className='flex w-[90%] flex-row items-center justify-evenly'>
                 <div>{anZhi}</div>
-                <div className={men === currentZhiShi ? 'text-[#E94C43]' : ''}>
+                <div
+                    className={
+                        men.charAt(0) === currentZhiShi ? 'text-[#E94C43]' : ''
+                    }
+                >
                     {men}
                 </div>
                 <div className='relative'>
@@ -110,7 +122,15 @@ const Gong = ({
                     {diPanYiKon && '◇'}
                 </div>
             </div>
-            <span className={tianPanShen === '值符' ? 'text-[#E94C43]' : ''}>
+            <span
+                className={
+                    diPanShen === '值符'
+                        ? 'text-[#E94C43]'
+                        : diPanShen === '符'
+                          ? 'text-[#E94C43]'
+                          : ''
+                }
+            >
                 {diPanShen}
             </span>
         </>
