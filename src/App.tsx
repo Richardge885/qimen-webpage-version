@@ -63,6 +63,7 @@ function App() {
                             displayHuanJu={displayHuanJu}
                             enableHuanJu={enableHuanJu}
                             disableHuanJu={disableHuanJu}
+                            updatePanJu={updatePanJu}
                         />
                     }
                 />

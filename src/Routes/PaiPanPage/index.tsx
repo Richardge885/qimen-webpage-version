@@ -10,6 +10,7 @@ interface Props {
     displayHuanJu: boolean;
     enableHuanJu: () => void;
     disableHuanJu: () => void;
+    updatePanJu: (panJuInfo: PanJuInformation) => void;
 }
 
 const index = ({
@@ -17,6 +18,7 @@ const index = ({
     displayHuanJu,
     disableHuanJu,
     enableHuanJu,
+    updatePanJu,
 }: Props) => {
     const activeShiGan = (shiZhu: string) => {
         switch (shiZhu) {
@@ -179,6 +181,8 @@ const index = ({
                 displayHuanJu={displayHuanJu}
                 disableHuanJu={disableHuanJu}
                 enableHuanJu={enableHuanJu}
+                updatePanJu={updatePanJu}
+                timeInfo={panJuInfo.allTimeInformation}
             />
         </div>
     );

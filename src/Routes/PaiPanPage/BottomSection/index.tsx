@@ -1,11 +1,15 @@
+import { FullTimeInformation, PanJuInformation } from '../../../interfaces';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaArrowRight } from 'react-icons/fa';
+import { paipan } from 'qimen-mingfa';
 
 interface Props {
     displayHuanJu: boolean;
     huanJuExist: boolean;
     enableHuanJu: () => void;
     disableHuanJu: () => void;
+    updatePanJu: (panJuInfo: PanJuInformation) => void;
+    timeInfo: FullTimeInformation;
 }
 
 const index = ({
@@ -13,7 +17,29 @@ const index = ({
     displayHuanJu,
     enableHuanJu,
     disableHuanJu,
+    updatePanJu,
+    timeInfo,
 }: Props) => {
+    function next(timeInfo: FullTimeInformation) {
+        const newTime = addTime(
+            timeInfo.year,
+            timeInfo.month,
+            timeInfo.date,
+            timeInfo.hour,
+        );
+        const paiPanInfo = constructPaiPanInfo(timeInfo.minute, newTime);
+        updatePanJu(paipan(paiPanInfo));
+    }
+    function prev(timeInfo: FullTimeInformation) {
+        const newTime = minusTime(
+            timeInfo.year,
+            timeInfo.month,
+            timeInfo.date,
+            timeInfo.hour,
+        );
+        const paiPanInfo = constructPaiPanInfo(timeInfo.minute, newTime);
+        updatePanJu(paipan(paiPanInfo));
+    }
     return (
         <div className='flex w-screen flex-col items-center justify-center gap-4 px-4'>
             <input
@@ -22,10 +48,20 @@ const index = ({
             />
             <div className='flex w-[93vw] flex-row justify-between'>
                 <div className='flex flex-row gap-3'>
-                    <button className='flex h-[10vw] w-[10vw] flex-row items-center justify-center rounded-lg bg-red text-center'>
+                    <button
+                        className='flex h-[10vw] w-[10vw] flex-row items-center justify-center rounded-lg bg-red text-center'
+                        onClick={() => {
+                            prev(timeInfo);
+                        }}
+                    >
                         <FaArrowLeft className='text-[5vw] text-bglight' />
                     </button>
-                    <button className='flex h-[10vw] w-[10vw] flex-row items-center justify-center rounded-lg bg-red text-center'>
+                    <button
+                        className='flex h-[10vw] w-[10vw] flex-row items-center justify-center rounded-lg bg-red text-center'
+                        onClick={() => {
+                            next(timeInfo);
+                        }}
+                    >
                         <FaArrowRight className='text-[5vw] text-bglight' />
                     </button>
                 </div>
@@ -57,5 +93,91 @@ const index = ({
         </div>
     );
 };
+
+function constructPaiPanInfo(
+    minute: number,
+    newTime: { year: number; month: number; date: number; hour: number },
+) {
+    const settings = JSON.parse(localStorage.getItem('qimenSettings')!);
+    return {
+        paipanMethod: '飞盘',
+        time: {
+            year: newTime.year,
+            month: newTime.month,
+            day: newTime.date,
+            hour: newTime.hour,
+            minute: minute,
+        },
+        baoshuMethod: '', // 制筹, 时辰, 局数
+        baoshu: 0,
+        ziXuanJu: '',
+        additionalSettings: {
+            traditionalCharacters: settings.traditionalChar,
+            singleCharacter: settings.singleChar,
+        },
+    };
+}
+
+function addTime(year: number, month: number, date: number, hour: number) {
+    const baseTime = new Date(year, month - 1, date, hour); // month 参数是 1-12，需要转换为 0-11 表示的月份
+    baseTime.setHours(baseTime.getHours() + 2);
+    if (baseTime.getHours() >= 24) {
+        baseTime.setDate(baseTime.getDate() + 1);
+        baseTime.setHours(baseTime.getHours() - 24);
+    }
+
+    const maxDate = new Date(year, month, 0).getDate(); // 获取月份的最大日期
+    if (baseTime.getDate() > maxDate) {
+        baseTime.setMonth(baseTime.getMonth() + 1);
+        baseTime.setDate(1);
+    }
+
+    if (baseTime.getMonth() >= 12) {
+        baseTime.setFullYear(baseTime.getFullYear() + 1);
+        baseTime.setMonth(0);
+    }
+    return formatDateTime(baseTime);
+}
+
+// 减去一个时辰
+function minusTime(year: number, month: number, date: number, hour: number) {
+    const baseTime = new Date(year, month - 1, date, hour); // month 参数是 1-12，需要转换为 0-11 表示的月份
+    baseTime.setHours(baseTime.getHours() - 2);
+    if (baseTime.getHours() < 0) {
+        baseTime.setDate(baseTime.getDate() - 1);
+        baseTime.setHours(baseTime.getHours() + 24);
+    }
+    if (baseTime.getDate() === 0) {
+        // 调整月份
+        const lastMonth = new Date(
+            baseTime.getFullYear(),
+            baseTime.getMonth(),
+            0,
+        );
+        baseTime.setDate(lastMonth.getDate());
+        baseTime.setMonth(baseTime.getMonth() - 1);
+    }
+
+    if (baseTime.getMonth() < 0) {
+        // 调整年份
+        baseTime.setFullYear(baseTime.getFullYear() - 1);
+        baseTime.setMonth(11); // 11 表示 12 月
+    }
+    return formatDateTime(baseTime);
+}
+
+function formatDateTime(dateTimeString: Date) {
+    const date = new Date(dateTimeString);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hour = date.getHours();
+    return {
+        year: year,
+        month: month,
+        date: day,
+        hour: hour,
+    };
+}
 
 export default index;
