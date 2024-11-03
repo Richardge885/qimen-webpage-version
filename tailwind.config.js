@@ -14,6 +14,8 @@ export default {
                 red: '#9E2E22',
                 border: '#886A36',
                 text: '#362420',
+                highlight: '#FFE504', // 新创
+                // highlight: '#FBEB5F', // 原版
 
                 // 五行颜色
                 jin: '#E79822',

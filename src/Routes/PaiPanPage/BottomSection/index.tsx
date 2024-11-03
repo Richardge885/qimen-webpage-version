@@ -51,6 +51,7 @@ const index = ({
                     <button
                         className='flex h-[10vw] w-[10vw] flex-row items-center justify-center rounded-lg bg-red text-center'
                         onClick={() => {
+                            disableHuanJu();
                             prev(timeInfo);
                         }}
                     >
@@ -59,6 +60,7 @@ const index = ({
                     <button
                         className='flex h-[10vw] w-[10vw] flex-row items-center justify-center rounded-lg bg-red text-center'
                         onClick={() => {
+                            disableHuanJu();
                             next(timeInfo);
                         }}
                     >

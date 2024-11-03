@@ -93,7 +93,7 @@ const HomePage = ({
     };
 
     return (
-        <div className='flex h-screen flex-col items-center justify-center gap-[1rem] pb-16'>
+        <div className='flex h-[100%] flex-col items-center justify-center gap-[1rem] pb-16 overflow-hidden'>
             <Modal
                 modalState={modalState}
                 handleCloseModal={closeModal}

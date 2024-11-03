@@ -16,10 +16,8 @@ interface Props {
 
 const ModalBox = ({
     modalState,
-
     selectedInfo,
     displayInfo,
-
     shen,
     xing,
     men,
@@ -29,7 +27,7 @@ const ModalBox = ({
     updateSelectedInfo,
 }: Props) => {
     const modalBoxStyle =
-        'absolute left-1/2 top-1/2 flex h-[100vw] w-[80vw] translate-x-[-50%] flex-row justify-center rounded-[15px] bg-bglight transition-all ease-linear z-20';
+        'absolute left-1/2 top-1/2 flex h-[110vw] w-[90vw] translate-x-[-50%] flex-row justify-center rounded-[15px] bg-bglight transition-all ease-linear z-20 overflow-hidden';
 
     return (
         <div
@@ -37,7 +35,7 @@ const ModalBox = ({
                 modalBoxStyle +
                 (modalState
                     ? ' translate-y-[-50%] border-[2px] border-[#886A36] duration-300'
-                    : ' translate-y-[1000%] border-[2px] border-[#886A36] duration-500')
+                    : ' translate-y-[500%] border-[2px] border-[#886A36] duration-500')
             }
         >
             <div

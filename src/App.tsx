@@ -39,7 +39,7 @@ function App() {
     checkAndInitializeLocalStorage();
 
     return (
-        <div className='flex flex-col items-center justify-center bg-bglight'>
+        <div className='flex flex-col items-center h-screen w-screen justify-center overflow-hidden bg-bglight'>
             <Routes>
                 <Route
                     path='/'

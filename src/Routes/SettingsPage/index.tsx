@@ -20,7 +20,7 @@ const Settings = () => {
     updateSettings();
 
     return (
-        <div className='flex h-screen flex-col items-center justify-center gap-[1rem] bg-bglight pb-16'>
+        <div className='flex h-[100%] flex-col items-center justify-center gap-[1rem] bg-bglight pb-16 overflow-hidden'>
             <h1 className='absolute top-0 pt-4 text-4xl text-red'>设置</h1>
             <label className='flex w-[80vw] justify-between text-2xl text-text'>
                 五行颜色
