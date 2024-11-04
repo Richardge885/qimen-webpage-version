@@ -11,7 +11,7 @@ interface Props {
 
 const NavigationBar = ({ activePage, setActivePage, disableHuanJu }: Props) => {
     return (
-        <div className='absolute bottom-0 flex h-[4rem] w-screen flex-row items-center justify-around bg-red sm:rounded-tl-[20px] sm:rounded-tr-[20px]'>
+        <div className='fixed bottom-0 flex w-full flex-row items-center justify-around bg-red py-3'>
             <Link
                 to={'/'}
                 onClick={() => {

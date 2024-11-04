@@ -37,7 +37,7 @@ const index = ({
 
     return (
         <div className='flex w-[93vw] flex-col items-center text-[120%]'>
-            <div className='flex flex-row'>
+            <div className='flex flex-row text-[4.5vw]'>
                 <div
                     className={
                         adjustThingsInTheMiddle +
@@ -328,7 +328,7 @@ const index = ({
                     />
                 </div>
             </div>
-            <div className='flex flex-row'>
+            <div className='flex flex-row text-[4.5vw]'>
                 <div
                     className={adjustThingsInTheMiddle + ' border-l-[2px]'}
                     onClick={() => handleClickGong('震')}
@@ -615,7 +615,7 @@ const index = ({
                     />
                 </div>
             </div>
-            <div className='flex flex-row'>
+            <div className='flex flex-row text-[4.5vw]'>
                 <div
                     className={
                         adjustThingsInTheMiddle +

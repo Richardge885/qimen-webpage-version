@@ -8,15 +8,14 @@
     "jsxSingleQuote": true,
     "quoteProps": "as-needed",
     "trailingComma": "all",
-    "singleAttributePerLine": true,
+    "singleAttributePerLine": false,
     "htmlWhitespaceSensitivity": "css",
-    "vueIndentScriptAndStyle": false,
+    "vueIndentScriptAndStyle": true,
     "proseWrap": "preserve",
     "insertPragma": false,
     "printWidth": 80,
     "requirePragma": false,
     "tabWidth": 4,
     "useTabs": false,
-    "embeddedLanguageFormatting": "auto",
-    "plugins": ["prettier-plugin-tailwindcss"]
+    "embeddedLanguageFormatting": "auto"
 }

@@ -4,7 +4,7 @@ interface Props {
 
 const index = ({ updateZiXuanJu }: Props) => {
     return (
-        <label className='text-center text-xl text-red'>
+        <label className='text-center text-lg m:text-2xl text-red'>
             自选局：
             <select
                 className='bg-bgdark text-black'

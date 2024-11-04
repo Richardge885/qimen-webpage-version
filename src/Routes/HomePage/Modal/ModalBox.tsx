@@ -36,9 +36,6 @@ const ModalBox = ({
     updateBaoShuNumber,
     updateActivePage,
 }: Props) => {
-    const modalBoxStyle =
-        'absolute gap-[10vw] left-1/2 top-1/2 flex h-[80vw] w-[70vw] translate-x-[-50%] flex-col items-center justify-center rounded-[15px] bg-bglight transition-all ease-linear z-20';
-
     // Clear number input box every time the modal is shown
     const numberInputRef = useRef<HTMLInputElement>(null);
     useEffect(() => {
@@ -52,13 +49,7 @@ const ModalBox = ({
     };
 
     return (
-        <div
-            className={
-                modalState
-                    ? modalBoxStyle + ' translate-y-[-50%] duration-300'
-                    : modalBoxStyle + ' translate-y-[1000%] duration-500'
-            }
-        >
+        <>
             <div className='flex w-[13.5rem] flex-row items-center justify-between text-xl'>
                 <label
                     htmlFor='时辰'
@@ -139,7 +130,7 @@ const ModalBox = ({
             >
                 起局
             </Link>
-        </div>
+        </>
     );
 };
 

@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from 'framer-motion';
 import ModalBox from './ModalBox';
 
 interface Props {
@@ -31,30 +32,42 @@ const Modal = ({
     displayInfo,
 }: Props) => {
     return (
-        <>
-            <ModalBox
-                modalState={modalState}
-                selectedInfo={selectedInfo}
-                displayInfo={displayInfo}
-                shen={shen}
-                xing={xing}
-                men={men}
-                tianPanGan={tianPanGan}
-                diPanGan={diPanGan}
-                baGua={baGua}
-                updateSelectedInfo={updateSelectedInfo}
-            />
-            <div
-                className={
-                    modalState
-                        ? 'absolute bottom-0 left-0 z-10 h-screen w-screen bg-black/[40%] opacity-100 transition-all duration-200 ease-in-out'
-                        : 'absolute bottom-0 left-0 opacity-0 transition-all duration-200 ease-in-out'
-                }
-                onClick={() => {
-                    handleCloseModal();
-                }}
-            ></div>
-        </>
+        <AnimatePresence>
+            {modalState && (
+                <>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 1.5 }} // Start fully transparent
+                        animate={{ opacity: 1, scale: 1 }} // Fade in to full opacity
+                        exit={{ opacity: 0, scale: 0.5 }} // Fade out to full transparency
+                        transition={{ duration: 0.3 }} // Adjust duration as desired
+                        className='absolute top-0 bottom-0 left-0 right-0 m-auto flex h-[110vw] w-[90vw] flex-row justify-center rounded-[15px] bg-bglight z-20 overflow-hidden'
+                    >
+                        <ModalBox
+                            modalState={modalState}
+                            selectedInfo={selectedInfo}
+                            displayInfo={displayInfo}
+                            shen={shen}
+                            xing={xing}
+                            men={men}
+                            tianPanGan={tianPanGan}
+                            diPanGan={diPanGan}
+                            baGua={baGua}
+                            updateSelectedInfo={updateSelectedInfo}
+                        />
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0 }} // Start fully transparent
+                        animate={{ opacity: 1 }} // Fade in to full opacity
+                        exit={{ opacity: 0 }} // Fade out to full transparency
+                        transition={{ duration: 0.2 }} // Adjust duration as desired
+                        className='absolute h-screen w-screen bg-black/[40%] z-10 top-0 bottom-0 left-0 right-0 m-auto'
+                        onClick={() => {
+                            handleCloseModal();
+                        }}
+                    ></motion.div>
+                </>
+            )}
+        </AnimatePresence>
     );
 };
 

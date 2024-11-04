@@ -32,10 +32,10 @@ const HomePagePaiPanButtonGroup = ({
     paiPanInfo,
 }: Props) => {
     const buttonStyle =
-        'w-[15rem] h-[3rem] bg-red text-bglight text-[2.8rem] hover:bg-bgdark hover:text-red rounded-[20px] duration-200 py-10 flex flex-col justify-center items-center';
+        'px-16 py-3 m:py-4 bg-red text-bglight ~text-3xl/5xl hover:bg-bgdark hover:text-red rounded-[20px] duration-200 flex flex-col justify-center items-center';
 
     return (
-        <div className='flex h-[40vh] flex-col items-center justify-center gap-10'>
+        <div className='flex flex-col items-center justify-center gap-10'>
             <HomePageChooseMethodButton
                 style={buttonStyle}
                 openModal={openModal}

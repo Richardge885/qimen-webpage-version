@@ -1,8 +1,21 @@
 /** @type {import('tailwindcss').Config} */
+import fluid, { extract, screens, fontSize } from 'fluid-tailwind';
+
 export default {
-    content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+    content: { files: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'], extract },
     theme: {
+        // screens: {
+        //     // tablet: '640px',
+        //     // laptop: '1024px',
+        //     // desktop: '1280px',
+        //     // => @media (min-width: 1280px) { ... }
+        // },
+        screens,
+        fontSize,
         extend: {
+            screens: {
+                m: '24.375rem',
+            },
             fontFamily: {
                 kaiti: 'kaiti',
             },
@@ -26,5 +39,5 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [fluid],
 };
