@@ -40,7 +40,7 @@ const Modal = ({
                         animate={{ opacity: 1, scale: 1 }} // Fade in to full opacity
                         exit={{ opacity: 0, scale: 0.5 }} // Fade out to full transparency
                         transition={{ duration: 0.3 }} // Adjust duration as desired
-                        className='absolute top-0 bottom-0 left-0 right-0 m-auto flex h-[110vw] w-[90vw] flex-row justify-center rounded-[15px] bg-bglight z-20 overflow-hidden'
+                        className='absolute top-0 bottom-0 left-0 right-0 m-auto flex h-[70%] w-[80%] m:h-[26.9rem] m:w-[90%] sm:h-[27rem] sm:w-[25rem] m:text-lg sm:text-xl flex-row justify-center rounded-[15px] bg-bglight z-20 '
                     >
                         <ModalBox
                             modalState={modalState}

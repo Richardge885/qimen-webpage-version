@@ -110,7 +110,9 @@ const ModalItems = ({
                 }}
                 className={
                     'w-[100%] py-3 text-center ' +
-                    (selectedInfo === '神煞' ? ModalItemsSelectedStyle : '')
+                    (selectedInfo === '神煞'
+                        ? ModalItemsSelectedStyle + ' rounded-br-xl'
+                        : '')
                 }
             >
                 神煞

@@ -93,7 +93,7 @@ const HomePage = ({
     };
 
     return (
-        <div className='flex flex-col items-center justify-center gap-10'>
+        <div className='flex flex-col items-center justify-center gap-[10dvh]'>
             <Modal
                 modalState={modalState}
                 handleCloseModal={closeModal}
@@ -103,8 +103,8 @@ const HomePage = ({
                 updateBaoShuMethod={updateBaoShuMethod}
                 updateBaoShuNumber={updateBaoShuNumber}
             />
-            <div className='flex flex-col justify-center gap-11 items-center w-full'>
-                <Title className='mt-6 m:mt-28 sm:mt-48 h-auto w-36 m:w-52 bg-transparent' />
+            <div className='flex flex-col justify-center gap-[5dvh] items-center w-full'>
+                <Title className='mt-6 m:mt-28 sm:mt-48 h-auto w-36 m:w-52 bg-transparent m:mb-4' />
                 <TimeInput
                     updateYear={updateYear}
                     updateMonth={updateMonth}

@@ -32,19 +32,19 @@ const HomePagePaiPanButtonGroup = ({
     paiPanInfo,
 }: Props) => {
     const buttonStyle =
-        'px-16 py-3 m:py-4 bg-red text-bglight ~text-3xl/5xl hover:bg-bgdark hover:text-red rounded-[20px] duration-200 flex flex-col justify-center items-center';
+        'px-16 py-3 m:py-5 m:px-20 bg-red text-bglight text-3xl m:text-4xl hover:bg-bgdark hover:text-red rounded-[20px] duration-200 flex flex-col justify-center items-center';
 
     return (
-        <div className='flex flex-col items-center justify-center gap-10'>
-            <HomePageChooseMethodButton
-                style={buttonStyle}
-                openModal={openModal}
-            />
+        <div className='flex flex-col items-center justify-center gap-8'>
             <HomePageCurrentTimeButton
                 style={buttonStyle}
                 paiPanInfo={paiPanInfo}
                 updateActivePage={updateActivePage}
                 updatePanJu={updatePanJu}
+            />
+            <HomePageChooseMethodButton
+                style={buttonStyle}
+                openModal={openModal}
             />
         </div>
     );

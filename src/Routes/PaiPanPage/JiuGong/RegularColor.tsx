@@ -74,13 +74,13 @@ const RegularColor = ({
         tianPanGan === activeShiGan ? 'relative text-[#E94C43]' : 'relative';
     return (
         <>
-            <span className='absolute right-[1vw] top-[1vw] text-[3.6vw]'>
+            <span className='absolute right-1 sm:right-2 top-[0.0rem] sm:top-1 text-xs m:text-base sm:text-xl'>
                 {gongKong && '〇'}
             </span>
-            <span className='absolute left-[5vw] top-[1.3vw] text-[3.6vw]'>
+            <span className='absolute left-3 top-1 sm:left-6 sm:top-3 text-sm m:text-lg sm:text-xl'>
                 {maXing && <GiHorseHead />}
             </span>
-            <span className='absolute bottom-[1vw] right-[1vw] text-[3.6vw]'>
+            <span className='absolute bottom-1 left-2 text-xs m:text-base sm:text-xl'>
                 {gongWangShuai}
             </span>
             <span className={regularZhiFuStyle}>{tianPanShen}</span>
@@ -88,12 +88,12 @@ const RegularColor = ({
                 <div>{anGan}</div>
                 <div className={regularZhiFuStyle}>{xing}</div>
                 <div className={regularShiGanSytle}>
-                    <span className='absolute bottom-[1.5rem] left-[0.17rem] text-[3.3vw] text-text'>
+                    <span className='absolute bottom-4 m:bottom-6 sm:bottom-7 left-[0.17rem] sm:left-[0.21rem] text-[0.7rem] m:text-[0.9rem] sm:text-lg text-text'>
                         {displayTianPanLiuQin}
                     </span>
                     {tianPanGan}
                 </div>
-                <div className='absolute right-[0.8vw] text-[3.6vw]'>
+                <div className='absolute right-0 text-xs m:text-[0.9rem] sm:text-xl'>
                     {tianPanYiKon && '◇'}
                 </div>
             </div>
@@ -101,12 +101,12 @@ const RegularColor = ({
                 <div>{anZhi}</div>
                 <div className={regularZhiShiStyle}>{men}</div>
                 <div className='relative'>
-                    <span className='absolute left-[0.17rem] top-[1.5rem] text-[3.3vw]'>
+                    <span className='absolute top-4 m:top-6 sm:top-7 left-[0.15rem] sm:left-[0.21rem] text-[0.7rem] m:text-[0.9rem] sm:text-lg text-text'>
                         {displayDiPanLiuQin}
                     </span>
                     {diPanGan}
                 </div>
-                <div className='absolute right-[0.8vw] text-[3.6vw]'>
+                <div className='absolute right-0 text-xs m:text-[0.9rem] sm:text-xl'>
                     {diPanYiKon && '◇'}
                 </div>
             </div>

@@ -42,7 +42,7 @@ function App() {
 
     return (
         <>
-            <div className='flex  flex-col justify-between h-dvh'>
+            <div className='flex flex-col '>
                 <div className='flex-grow'>
                     <Routes>
                         <Route

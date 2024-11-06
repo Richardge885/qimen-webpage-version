@@ -15,7 +15,6 @@ interface Props {
 }
 
 const ModalBox = ({
-    modalState,
     selectedInfo,
     displayInfo,
     shen,
@@ -26,20 +25,10 @@ const ModalBox = ({
     baGua,
     updateSelectedInfo,
 }: Props) => {
-    const modalBoxStyle =
-        'absolute left-1/2 top-1/2 flex h-[110vw] w-[90vw] translate-x-[-50%] flex-row justify-center rounded-[15px] bg-bglight transition-all ease-linear z-20 overflow-hidden';
-
     return (
-        <div
-            className={
-                modalBoxStyle +
-                (modalState
-                    ? ' translate-y-[-50%] border-[2px] border-[#886A36] duration-300'
-                    : ' translate-y-[500%] border-[2px] border-[#886A36] duration-500')
-            }
-        >
+        <>
             <div
-                className='h-[100%] w-[80%] overflow-scroll p-4'
+                className='h-auto w-4/5 overflow-scroll m-4'
                 dangerouslySetInnerHTML={{ __html: displayInfo }}
             ></div>
             <ModalItems
@@ -52,7 +41,7 @@ const ModalBox = ({
                 baGua={baGua}
                 updateSelectedInfo={updateSelectedInfo}
             />
-        </div>
+        </>
     );
 };
 

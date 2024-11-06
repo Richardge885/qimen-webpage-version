@@ -1,7 +1,6 @@
 import SiZhuContainer from './SiZhuContainer';
 import XunShouAndJuShu from './XunShouAndJuShu';
 import FuShi from './FuShi';
-import TimeData from './TimeData';
 
 interface Props {
     zhiFu: string;
@@ -29,18 +28,16 @@ const index = ({ timeInformation, zhiFu, zhiShi, xunShou }: Props) => {
         timeInformation.shizhu.charAt(0),
     );
     return (
-        <div className='flex flex-col items-center justify-center'>
-            <div className='flex w-[93vw] flex-row items-center justify-between pb-2 pt-1'>
-                <TimeData
-                    year={timeInformation.year}
-                    month={timeInformation.month}
-                    date={timeInformation.date}
-                    hour={timeInformation.hour}
-                    minute={timeInformation.minute}
-                />
-                <div className='text-[5vw]'>节气:{timeInformation.jieqi}</div>
+        <div className='flex flex-col items-center justify-between sm:w-[32rem] sm:px-0 w-full px-3 m:px-4'>
+            <div className='flex flex-row items-center justify-between pb-2 pt-1 w-full text-base m:text-lg sm:text-2xl'>
+                <div>
+                    {timeInformation.year}年{timeInformation.month}月
+                    {timeInformation.date}日{timeInformation.hour}时
+                    {timeInformation.minute}分
+                </div>
+                <div>节气:{timeInformation.jieqi}</div>
             </div>
-            <div className='flex w-[93vw] flex-row items-center justify-between'>
+            <div className='flex flex-row items-center justify-between w-full m:text-xl sm:text-2xl'>
                 <SiZhuContainer
                     nianZhu={timeInformation.nianzhu}
                     yueZhu={timeInformation.yuezhu}
@@ -53,11 +50,8 @@ const index = ({ timeInformation, zhiFu, zhiShi, xunShou }: Props) => {
                         dun={timeInformation.dun}
                         juShu={timeInformation.jushu}
                     />
-                    <FuShi
-                        zhiFu={zhiFu}
-                        zhiShi={zhiShi}
-                    />
-                    {wuBuYuShi && <div className='text-[5vw]'>五不遇时</div>}
+                    <FuShi zhiFu={zhiFu} zhiShi={zhiShi} />
+                    {wuBuYuShi && <div>五不遇时</div>}
                 </div>
             </div>
         </div>

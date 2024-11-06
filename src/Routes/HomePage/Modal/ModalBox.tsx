@@ -38,6 +38,7 @@ const ModalBox = ({
 }: Props) => {
     // Clear number input box every time the modal is shown
     const numberInputRef = useRef<HTMLInputElement>(null);
+
     useEffect(() => {
         if (modalState && numberInputRef.current) {
             numberInputRef.current.value = '';
@@ -50,7 +51,7 @@ const ModalBox = ({
 
     return (
         <>
-            <div className='flex w-[13.5rem] flex-row items-center justify-between text-xl'>
+            <div className='flex flex-row items-center justify-center text-xl gap-6'>
                 <label
                     htmlFor='时辰'
                     className='flex cursor-pointer flex-col items-center rounded-[6px] border-[2px] border-solid border-red text-red'
@@ -122,7 +123,7 @@ const ModalBox = ({
             />
             <Link
                 to='/paipan'
-                className='flex h-[10vw] w-[20vw] flex-col items-center justify-center rounded-[10px] bg-red text-center text-xl text-bglight transition-all duration-300 hover:scale-110'
+                className='flex flex-col items-center justify-center px-10 py-3 rounded-lg bg-red text-center text-xl m:text-2xl sm:text-3xl text-bglight transition-all duration-300 hover:scale-110'
                 onClick={() => {
                     updatePanJu(paipan(paiPanInfo));
                     updateActivePage('paipan');

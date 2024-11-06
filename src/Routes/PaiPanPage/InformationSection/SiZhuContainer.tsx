@@ -16,60 +16,69 @@ const index = ({ nianZhu, yueZhu, riZhu, shiZhu }: Props) => {
     const riZhiColor = getColor(riZhu.charAt(1));
     const shiGanColor = getColor(shiZhu.charAt(0));
     const shiZhiColor = getColor(shiZhu.charAt(1));
+
+    const columnSytle =
+        'flex w-8 m:w-11 sm:w-16 flex-col items-center border-2 border-[#886A36] m:py-2';
+    const topColumnSytle = 'text-center text-text sm:pb-2';
+    const bottomColumnStyle =
+        'w-8 m:w-11 sm:w-16 border-t-2 border-[#886A36] text-center text-text sm:pt-1';
+
     return (
-        <div className='flex flex-row'>
-            <div className='flex h-[30vw] w-[10vw] flex-col items-center rounded-bl-[10px] rounded-tl-[10px] border-[2px] border-r-0 border-[#886A36]'>
-                <div className='w-[10vw] text-center text-[6vw] text-text'>
-                    年
-                </div>
-                <div className='h-[20vw] w-[10vw] border-t-[2px] border-[#886A36] text-center text-[6vw] text-text'>
-                    <span className={wuXingColor ? nianGanColor : 'text-text'}>
+        <div className='flex flex-row text-xl m:text-2xl sm:text-4xl'>
+            <div
+                className={
+                    columnSytle +
+                    ' rounded-bl-[10px] rounded-tl-[10px] border-r-0 m:py-1'
+                }
+            >
+                <div className={topColumnSytle}>年</div>
+                <div className={bottomColumnStyle}>
+                    <span className={wuXingColor ? nianGanColor : ''}>
                         {nianZhu.charAt(0)}
                     </span>
                     <br />
-                    <span className={wuXingColor ? nianZhiColor : 'text-text'}>
+                    <span className={wuXingColor ? nianZhiColor : ''}>
                         {nianZhu.charAt(1)}
                     </span>
                 </div>
             </div>
-            <div className='flex h-[30vw] w-[10vw] flex-col items-center border-[2px] border-r-0 border-[#886A36]'>
-                <div className='w-[10vw] text-center text-[6vw] text-text'>
-                    月
-                </div>
-                <div className='h-[20vw] w-[10vw] border-t-[2px] border-[#886A36] text-center text-[6vw] text-text'>
-                    <span className={wuXingColor ? yueGanColor : 'text-text'}>
+            <div className={columnSytle + ' border-r-0 m:py-1'}>
+                <div className={topColumnSytle}>月</div>
+                <div className={bottomColumnStyle}>
+                    <span className={wuXingColor ? yueGanColor : ''}>
                         {yueZhu.charAt(0)}
                     </span>
                     <br />
-                    <span className={wuXingColor ? yueZhiColor : 'text-text'}>
+                    <span className={wuXingColor ? yueZhiColor : ''}>
                         {yueZhu.charAt(1)}
                     </span>
                 </div>
             </div>
-            <div className='flex h-[30vw] w-[10vw] flex-col items-center border-[2px] border-[#886A36]'>
-                <div className='w-[10vw] text-center text-[6vw] text-text'>
-                    日
-                </div>
-                <div className='h-[20vw] w-[10vw] border-t-[2px] border-[#886A36] text-center text-[6vw] text-text'>
-                    <span className={wuXingColor ? riGanColor : 'text-text'}>
+            <div className={columnSytle + ' m:py-1'}>
+                <div className={topColumnSytle}>日</div>
+                <div className={bottomColumnStyle}>
+                    <span className={wuXingColor ? riGanColor : ''}>
                         {riZhu.charAt(0)}
                     </span>
                     <br />
-                    <span className={wuXingColor ? riZhiColor : 'text-text'}>
+                    <span className={wuXingColor ? riZhiColor : ''}>
                         {riZhu.charAt(1)}
                     </span>
                 </div>
             </div>
-            <div className='flex h-[30vw] w-[10vw] flex-col items-center rounded-br-[10px] rounded-tr-[10px] border-[2px] border-l-0 border-[#886A36]'>
-                <div className='w-[10vw] text-center text-[6vw] text-text'>
-                    时
-                </div>
-                <div className='h-[20vw] w-[10vw] border-t-[2px] border-[#886A36] text-center text-[6vw] text-text'>
-                    <span className={wuXingColor ? shiGanColor : 'text-text'}>
+            <div
+                className={
+                    columnSytle +
+                    ' rounded-br-[10px] rounded-tr-[10px] border-l-0 m:py-1'
+                }
+            >
+                <div className={topColumnSytle}>时</div>
+                <div className={bottomColumnStyle}>
+                    <span className={wuXingColor ? shiGanColor : ''}>
                         {shiZhu.charAt(0)}
                     </span>
                     <br />
-                    <span className={wuXingColor ? shiZhiColor : 'text-text'}>
+                    <span className={wuXingColor ? shiZhiColor : ''}>
                         {shiZhu.charAt(1)}
                     </span>
                 </div>

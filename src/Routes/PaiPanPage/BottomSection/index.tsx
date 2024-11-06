@@ -40,44 +40,46 @@ const index = ({
         const paiPanInfo = constructPaiPanInfo(timeInfo.minute, newTime);
         updatePanJu(paipan(paiPanInfo));
     }
+
     return (
         <div className='flex w-screen flex-col items-center justify-center gap-4 px-4'>
             <input
                 type='text'
-                className='w-[93vw] rounded-lg border-[2px] border-[#886A36] p-1 text-[5vw]'
+                className='w-[24.2rem] m:w-[24.2rem] sm:w-[32rem] rounded-lg border-[2px] border-[#886A36] p-2 text-xl hidden m:block resize-y'
             />
-            <div className='flex w-[93vw] flex-row justify-between'>
+            <div className='flex w-[18.6rem] m:w-[24.2rem] sm:w-[32rem] flex-row justify-between'>
                 <div className='flex flex-row gap-3'>
                     <button
-                        className='flex h-[10vw] w-[10vw] flex-row items-center justify-center rounded-lg bg-red text-center'
+                        className='flex aspect-square p-2 flex-row items-center justify-center rounded-lg bg-red text-center'
+                        //w-[10vw]
                         onClick={() => {
                             disableHuanJu();
                             prev(timeInfo);
                         }}
                     >
-                        <FaArrowLeft className='text-[5vw] text-bglight' />
+                        <FaArrowLeft className='text-[5vw] sm:text-3xl text-bglight' />
                     </button>
                     <button
-                        className='flex h-[10vw] w-[10vw] flex-row items-center justify-center rounded-lg bg-red text-center'
+                        className='flex aspect-square p-2 flex-row items-center justify-center rounded-lg bg-red text-center'
                         onClick={() => {
                             disableHuanJu();
                             next(timeInfo);
                         }}
                     >
-                        <FaArrowRight className='text-[5vw] text-bglight' />
+                        <FaArrowRight className='text-[5vw] sm:text-3xl text-bglight' />
                     </button>
                 </div>
                 {huanJuExist ? (
                     displayHuanJu ? (
                         <button
-                            className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight disabled:line-through'
+                            className='flex p-2 sm:text-3xl flex-row items-center justify-center rounded-lg bg-red text-center text-[5vw] text-bglight disabled:line-through'
                             onClick={() => disableHuanJu()}
                         >
                             甲时换局
                         </button>
                     ) : (
                         <button
-                            className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight disabled:line-through'
+                            className='flex p-2 sm:text-3xl flex-row items-center justify-center rounded-lg bg-red text-center text-[5vw] text-bglight disabled:line-through'
                             onClick={() => enableHuanJu()}
                         >
                             甲时换局
@@ -85,7 +87,7 @@ const index = ({
                     )
                 ) : (
                     <button
-                        className='flex h-[10vw] w-[25vw] flex-row items-center justify-center rounded-lg bg-red p-1 text-center text-[5vw] text-bglight disabled:line-through'
+                        className='flex p-2 sm:text-3xl flex-row items-center justify-center rounded-lg bg-red text-center text-[5vw] text-bglight disabled:line-through'
                         disabled
                     >
                         甲时换局

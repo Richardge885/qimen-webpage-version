@@ -52,7 +52,7 @@ const TimeInput = ({
                     type='datetime-local'
                     value={inputTime}
                     onChange={(e) => setInputTime(e.target.value)}
-                    className='~w-52/72 h-12 rounded-[10px] border-[1px] border-solid border-red bg-bgdark text-lg m:text-xl'
+                    className='w-52 m:w-60 h-12 rounded-[10px] border-[1px] border-solid border-red bg-bgdark text-lg m:text-xl'
                 />
                 <button
                     onClick={handleBackToCurrentTime}

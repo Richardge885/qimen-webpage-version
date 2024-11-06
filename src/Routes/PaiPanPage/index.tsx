@@ -144,7 +144,7 @@ const index = ({
             break;
     }
     return (
-        <div className='flex h-[100%] flex-col items-center gap-[1rem] bg-bglight overflow-hidden'>
+        <div className='flex flex-col items-center gap-4 bg-bglight overflow-hidden'>
             <Modal
                 handleCloseModal={closeModal}
                 modalState={modalState}

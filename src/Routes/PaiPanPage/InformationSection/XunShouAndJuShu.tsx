@@ -6,7 +6,7 @@ interface Props {
 
 const XunShouAndJuShu = ({ xunShou, dun, juShu }: Props) => {
     return (
-        <div className='flex flex-row justify-between gap-4 text-[5vw]'>
+        <div className='flex flex-row justify-between gap-4'>
             <div>
                 {dun}
                 {juShu}局
