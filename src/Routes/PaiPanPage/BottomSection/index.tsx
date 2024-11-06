@@ -42,12 +42,12 @@ const index = ({
     }
 
     return (
-        <div className='flex w-screen flex-col items-center justify-center gap-4 px-4'>
+        <div className='flex w-[100%] flex-col items-center justify-center gap-4'>
             <input
                 type='text'
-                className='w-[24.2rem] m:w-[24.2rem] sm:w-[32rem] rounded-lg border-[2px] border-[#886A36] p-2 text-xl hidden m:block resize-y'
+                className='w-[92%] sm:w-[32rem] rounded-lg border-[2px] border-[#886A36] p-2 text-xl hidden m:block resize-y'
             />
-            <div className='flex w-[18.6rem] m:w-[24.2rem] sm:w-[32rem] flex-row justify-between'>
+            <div className='flex w-[92%] sm:w-[32rem] flex-row justify-between'>
                 <div className='flex flex-row gap-3'>
                     <button
                         className='flex aspect-square p-2 flex-row items-center justify-center rounded-lg bg-red text-center'

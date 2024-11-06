@@ -81,13 +81,13 @@ const WuXingColor = ({
 
     return (
         <>
-            <span className='absolute right-1 sm:right-2 top-[0.0rem] sm:top-1 text-xs m:text-base sm:text-xl'>
+            <span className='absolute right-1 sm:right-2 top-[0.0rem] sm:top-1 text-xs m:text-sm sm:text-xl'>
                 {gongKong && '〇'}
             </span>
             <span className='absolute left-3 top-1 sm:left-6 sm:top-3 text-sm m:text-lg sm:text-xl'>
                 {maXing && <GiHorseHead />}
             </span>
-            <span className='absolute bottom-1 left-2 text-xs m:text-base sm:text-xl'>
+            <span className='absolute bottom-1 left-2 text-xs m:text-[0.9rem] sm:text-xl'>
                 {gongWangShuai}
             </span>
             <span className={tianPanShenColor + ZhiFuStyle}>{tianPanShen}</span>
@@ -95,7 +95,7 @@ const WuXingColor = ({
                 <div>{anGan}</div>
                 <div className={xingColor + ZhiFuStyle}>{xing}</div>
                 <div className={tianPanGanColor + ShiGanSytle}>
-                    <span className='absolute bottom-4 m:bottom-6 sm:bottom-7 left-[0.17rem] sm:left-[0.21rem] text-[0.7rem] m:text-[0.9rem] sm:text-lg text-text'>
+                    <span className='absolute bottom-4 m:bottom-5 sm:bottom-7 left-[0.17rem] sm:left-[0.21rem] text-[0.7rem] m:text-[0.9rem] sm:text-lg text-text'>
                         {displayTianPanLiuQin}
                     </span>
                     {tianPanGan}
@@ -108,7 +108,7 @@ const WuXingColor = ({
                 <div>{anZhi}</div>
                 <div className={menColor + ZhiShiStyle}>{men}</div>
                 <div className={diPanGanColor + ' relative'}>
-                    <span className='absolute top-4 m:top-6 sm:top-7 left-[0.15rem] sm:left-[0.21rem] text-[0.7rem] m:text-[0.9rem] sm:text-lg text-text'>
+                    <span className='absolute top-4 m:top-5 sm:top-7 left-[0.15rem] sm:left-[0.21rem] text-[0.7rem] m:text-[0.9rem] sm:text-lg text-text'>
                         {displayDiPanLiuQin}
                     </span>
                     {diPanGan}

@@ -23,7 +23,7 @@ const index = ({
     resetSelectedInfo,
 }: Props) => {
     const adjustThingsInTheMiddle =
-        'flex flex-col items-center justify-evenly text-text relative aspect-square w-[31vw] sm:w-[10.7rem] border-collaps border-solid border-[#886A36] border-[1px]';
+        'flex flex-col items-center justify-evenly text-text relative aspect-square w-[90%] sm:w-[10.7rem] border-collaps border-solid border-[#886A36] border-[1px]';
     const liuQinSettings = JSON.parse(
         localStorage.getItem('qimenSettings')!,
     ).displayLiuQin;
@@ -36,8 +36,8 @@ const index = ({
     };
 
     return (
-        <div className='flex flex-col items-center text-base m:text-xl sm:text-2xl'>
-            <div className='flex flex-row'>
+        <div className='flex flex-col justify-center items-center text-base m:text-xl sm:text-2xl w-full'>
+            <div className='flex flex-row w-[92%] sm:w-[32rem]'>
                 <div
                     className={
                         adjustThingsInTheMiddle +
@@ -328,7 +328,7 @@ const index = ({
                     />
                 </div>
             </div>
-            <div className='flex flex-row'>
+            <div className='flex flex-row w-[92%] sm:w-[32rem]'>
                 <div
                     className={adjustThingsInTheMiddle + ' border-l-[2px]'}
                     onClick={() => handleClickGong('震')}
@@ -615,7 +615,7 @@ const index = ({
                     />
                 </div>
             </div>
-            <div className='flex flex-row'>
+            <div className='flex flex-row w-[92%] sm:w-[32rem]'>
                 <div
                     className={
                         adjustThingsInTheMiddle +

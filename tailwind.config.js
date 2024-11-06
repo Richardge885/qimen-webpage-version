@@ -9,12 +9,13 @@ export default {
         //     // laptop: '1024px',
         //     // desktop: '1280px',
         //     // => @media (min-width: 1280px) { ... }
+        //
         // },
         screens,
         fontSize,
         extend: {
             screens: {
-                m: '24.375rem',
+                m: '22.5rem', // 360px
             },
             fontFamily: {
                 kaiti: 'kaiti',
