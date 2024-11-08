@@ -7,7 +7,7 @@
 @layer base {
     @font-face {
         font-family: 'kaiti';
-        src: url('./assets/fonts/KaiTi.woff2');
+        src: url('./assets/KaiTi.woff2');
     }
 }
 

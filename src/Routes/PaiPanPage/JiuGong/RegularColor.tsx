@@ -83,12 +83,12 @@ const RegularColor = ({
             <span className='absolute bottom-1 left-2 text-xs m:text-[0.9rem] sm:text-xl'>
                 {gongWangShuai}
             </span>
-            <span className={regularZhiFuStyle}>{tianPanShen}</span>
+            <span>{tianPanShen}</span>
             <div className='flex w-[90%] flex-row items-center justify-evenly'>
                 <div>{anGan}</div>
                 <div className={regularZhiFuStyle}>{xing}</div>
                 <div className={regularShiGanSytle}>
-                    <span className='absolute bottom-4 m:bottom-5 sm:bottom-7 left-[0.17rem] sm:left-[0.21rem] text-[0.7rem] m:text-[0.9rem] sm:text-lg text-text'>
+                    <span className='absolute bottom-4 m:bottom-5 sm:bottom-7 left-[0.17rem] sm:left-[0.21rem] text-[0.5rem] m:text-[0.9rem] sm:text-lg text-text'>
                         {displayTianPanLiuQin}
                     </span>
                     {tianPanGan}
@@ -101,7 +101,7 @@ const RegularColor = ({
                 <div>{anZhi}</div>
                 <div className={regularZhiShiStyle}>{men}</div>
                 <div className='relative'>
-                    <span className='absolute top-4 m:top-5 sm:top-7 left-[0.15rem] sm:left-[0.21rem] text-[0.7rem] m:text-[0.9rem] sm:text-lg text-text'>
+                    <span className='absolute top-4 m:top-5 sm:top-7 left-[0.15rem] sm:left-[0.21rem] text-[0.5rem] m:text-[0.9rem] sm:text-lg text-text'>
                         {displayDiPanLiuQin}
                     </span>
                     {diPanGan}

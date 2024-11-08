@@ -29,7 +29,7 @@ const index = ({ timeInformation, zhiFu, zhiShi, xunShou }: Props) => {
     );
     return (
         <div className='flex flex-col items-center justify-between sm:w-[32rem] sm:px-0 w-[92%]'>
-            <div className='flex flex-row items-center justify-between pb-2 pt-1 w-full ~/sm:~text-base/xl sm:text-2xl'>
+            <div className='flex flex-row items-center justify-between pb-2 pt-1 w-full text-base m:text-xl sm:text-2xl'>
                 <div>
                     {timeInformation.year}年{timeInformation.month}月
                     {timeInformation.date}日{timeInformation.hour}时
@@ -37,7 +37,7 @@ const index = ({ timeInformation, zhiFu, zhiShi, xunShou }: Props) => {
                 </div>
                 <div>节气:{timeInformation.jieqi}</div>
             </div>
-            <div className='flex flex-row items-center justify-between w-full ~/sm:~text-base/2xl sm:text-2xl'>
+            <div className='flex flex-row items-center justify-between w-full text-base m:text-[1.3rem] sm:text-2xl'>
                 <SiZhuContainer
                     nianZhu={timeInformation.nianzhu}
                     yueZhu={timeInformation.yuezhu}

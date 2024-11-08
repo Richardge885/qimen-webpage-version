@@ -1,9 +1,11 @@
 import { FullTimeInformation, PanJuInformation } from '../../../interfaces';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaArrowRight } from 'react-icons/fa';
+import generateTextPanJu from './generateTextPanJu';
 import { paipan } from 'qimen-mingfa';
 
 interface Props {
+    panJuInfo: PanJuInformation;
     displayHuanJu: boolean;
     huanJuExist: boolean;
     enableHuanJu: () => void;
@@ -13,6 +15,7 @@ interface Props {
 }
 
 const index = ({
+    panJuInfo,
     huanJuExist,
     displayHuanJu,
     enableHuanJu,
@@ -51,7 +54,6 @@ const index = ({
                 <div className='flex flex-row gap-3'>
                     <button
                         className='flex aspect-square p-2 flex-row items-center justify-center rounded-lg bg-red text-center'
-                        //w-[10vw]
                         onClick={() => {
                             disableHuanJu();
                             prev(timeInfo);
@@ -69,6 +71,18 @@ const index = ({
                         <FaArrowRight className='text-[5vw] sm:text-3xl text-bglight' />
                     </button>
                 </div>
+                <button
+                    className='flex p-2 flex-row items-center justify-center rounded-lg bg-red text-center text-[5vw] text-bglight'
+                    onClick={() => {
+                        const textPanJu = generateTextPanJu(
+                            panJuInfo,
+                            displayHuanJu,
+                        );
+                        navigator.clipboard.writeText(textPanJu);
+                    }}
+                >
+                    复制本局
+                </button>
                 {huanJuExist ? (
                     displayHuanJu ? (
                         <button

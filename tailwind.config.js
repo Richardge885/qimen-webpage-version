@@ -16,6 +16,7 @@ export default {
         extend: {
             screens: {
                 m: '22.5rem', // 360px
+                widerM: '33.125rem', // 440px
             },
             fontFamily: {
                 kaiti: 'kaiti',

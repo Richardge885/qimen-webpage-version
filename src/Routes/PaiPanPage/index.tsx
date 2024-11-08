@@ -175,6 +175,7 @@ const index = ({
                 resetSelectedInfo={resetSelectedInfo}
             />
             <BottomSection
+                panJuInfo={panJuInfo}
                 huanJuExist={
                     panJuInfo.huanJu.kanGong.tianPanGan === '' ? false : true
                 }

@@ -36,7 +36,7 @@ const index = ({
     };
 
     return (
-        <div className='flex flex-col justify-center items-center text-base m:text-xl sm:text-2xl w-full'>
+        <div className='flex flex-col justify-center items-center text-base m:text-[1.16rem] widerM:text-[1.5rem] sm:text-2xl w-full'>
             <div className='flex flex-row w-[92%] sm:w-[32rem]'>
                 <div
                     className={
