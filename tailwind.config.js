@@ -26,7 +26,6 @@ export default {
                 bglight: '#F7F3E8',
                 bgdark: '#F0E8D6',
                 red: '#9E2E22',
-                red: '#9E2E22',
                 border: '#886A36',
                 text: '#362420',
                 highlight: '#FFE504', // 新创
