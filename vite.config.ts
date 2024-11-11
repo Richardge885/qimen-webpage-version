@@ -7,5 +7,4 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
     // plugins: [react(), svgr(), viteSingleFile()],
     plugins: [react(), svgr()],
-    // base: '/qimen-webpage-version/',
 });
