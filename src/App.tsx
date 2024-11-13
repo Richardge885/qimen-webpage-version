@@ -5,7 +5,7 @@ import {
 import HomePage from './Routes/HomePage';
 import PaiPanPage from './Routes/PaiPanPage';
 import SettingsPage from './Routes/SettingsPage';
-import NavigationBar from './Components/NavigationBar';
+import NavigationBar from './components/NavigationBar';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import { PanJuInformation } from './interfaces';

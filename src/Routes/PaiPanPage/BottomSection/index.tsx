@@ -48,7 +48,7 @@ const index = ({
         <div className='flex w-[100%] flex-col items-center justify-center gap-4'>
             <input
                 type='text'
-                className='w-[92%] sm:w-[32rem] rounded-lg border-[2px] border-[#886A36] p-2 text-xl hidden m:block resize-y'
+                className='w-[92%] sm:w-[32rem] rounded-lg border-[2px] border-[#886A36] p-2 text-xl hidden m:block resize-y bg-bglight'
             />
             <div className='flex w-[92%] sm:w-[32rem] flex-row justify-between'>
                 <div className='flex flex-row gap-3'>
