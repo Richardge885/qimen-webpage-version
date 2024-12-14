@@ -47,7 +47,7 @@ const Modal = ({
                             animate={{ opacity: 1, scale: 1 }} // Fade in to full opacity
                             exit={{ opacity: 0, scale: 0.5 }} // Fade out to full transparency
                             transition={{ duration: 0.3 }} // Adjust duration as desired
-                            className='absolute flex aspect-square w-[16rem] m:w-[18rem] sm:w-[20rem] flex-col items-center justify-center rounded-[15px] bg-bglight z-20 top-0 bottom-0 left-0 right-0 m-auto gap-5 m:gap-10 sm:gap-14'
+                            className='absolute flex flex-col items-center justify-center rounded-[15px] bg-bglight z-20 top-0 bottom-0 left-0 right-0 m-auto gap-5 m:gap-10 sm:gap-14 p-4 aspect-square w-[16rem] m:w-[18rem] sm:w-[20rem]'
                         >
                             <ModalBox
                                 updateActivePage={updateActivePage}

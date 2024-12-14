@@ -54,7 +54,7 @@ const ModalBox = ({
             <div className='flex flex-row items-center justify-center text-xl gap-6'>
                 <label
                     htmlFor='时辰'
-                    className='flex cursor-pointer flex-col items-center rounded-[6px] border-[2px] border-solid border-red text-red'
+                    className='flex cursor-pointer flex-col items-center rounded-[6px] border-[2px] border-solid border-red text-red text-center'
                 >
                     <input
                         type='radio'
@@ -71,7 +71,7 @@ const ModalBox = ({
                 </label>
                 <label
                     htmlFor='局数'
-                    className='flex cursor-pointer flex-col items-center rounded-[6px] border-[2px] border-solid border-red text-red'
+                    className='flex cursor-pointer flex-col items-center rounded-[6px] border-[2px] border-solid border-red text-red text-center'
                 >
                     <input
                         type='radio'
@@ -88,7 +88,7 @@ const ModalBox = ({
                 </label>
                 <label
                     htmlFor='制筹'
-                    className='flex cursor-pointer flex-col items-center rounded-[6px] border-[2px] border-solid border-red text-red'
+                    className='flex cursor-pointer flex-col items-center rounded-[6px] border-[2px] border-solid border-red text-red text-center'
                 >
                     <input
                         type='radio'
