@@ -70,6 +70,7 @@ export interface GongWei {
         tianPanGan: string;
         diPanGan: string;
         gong: string;
+        zhangSheng: string[];
     };
     shenSha: string[];
 }

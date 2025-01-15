@@ -140,6 +140,7 @@ const index = ({
                 gongData.diPanGanZhangSheng,
                 gongData.zhengGe,
                 gongData.fuGe,
+                gongData.symboleInfo.zhangSheng,
             );
             break;
     }
@@ -196,6 +197,7 @@ function gejuInfoToHtml(
     diPanPanZhangSheng: string,
     zhengGe: string[],
     fuGe: { ganGong: string; menGong: string; xingGong: string },
+    zhangSheng: string[],
 ): string {
     const zhangShengString =
         zhangShengToHtml(tianPanGan, tianPanZhangSheng) +
@@ -217,8 +219,19 @@ function gejuInfoToHtml(
             stringToHtml(fuGe.xingGong),
         ].join('<br><br>');
     }
+    let zhangShengInfo = '';
+    zhangSheng.map((item) => {
+        zhangShengInfo = zhangShengInfo + item + '<br><br>';
+    });
+    zhangShengInfo = stringToHtml(zhangShengInfo);
     return (
-        zhangShengString + '<br><br>' + zhengGeString + '<br><br>' + fuGeString
+        zhangShengString +
+        '<br><br>' +
+        zhengGeString +
+        '<br><br>' +
+        fuGeString +
+        '<br><br>' +
+        zhangShengInfo
     );
 }
 

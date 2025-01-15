@@ -42,7 +42,7 @@ const HomePage = ({
     inputTime,
 }: Props) => {
     const settings = JSON.parse(localStorage.getItem('qimenSettings')!);
-    const [modalState, setModalState] = useState(true);
+    const [modalState, setModalState] = useState(false);
 
     const [ziXuanJu, setZiXuanJu] = useState('');
     const [baoShuMethod, setBaoShuMethod] = useState(settings.baoShuMethod); // Needs update with localstorage

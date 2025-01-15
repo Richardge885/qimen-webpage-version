@@ -4,10 +4,8 @@ import ModalBox from './ModalBox';
 interface Props {
     handleCloseModal: () => void;
     modalState: boolean;
-
     displayInfo: string;
     selectedInfo: string;
-
     shen: string;
     xing: string;
     men: string;
@@ -28,7 +26,6 @@ const Modal = ({
     tianPanGan,
     diPanGan,
     baGua,
-
     displayInfo,
 }: Props) => {
     return (

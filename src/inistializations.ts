@@ -61,6 +61,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -100,6 +101,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -139,6 +141,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -178,6 +181,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -217,6 +221,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -256,6 +261,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -295,6 +301,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -334,6 +341,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -373,6 +381,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -414,6 +423,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -453,6 +463,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -492,6 +503,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -531,6 +543,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -570,6 +583,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -609,6 +623,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -648,6 +663,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -687,6 +703,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
@@ -726,6 +743,7 @@ export function initializePanJu(): PanJuInformation {
                     xingGong: '',
                 },
                 symboleInfo: {
+                    zhangSheng: [],
                     xing: '',
                     men: '',
                     shen: '',
