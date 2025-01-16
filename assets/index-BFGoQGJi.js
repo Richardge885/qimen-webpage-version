@@ -660,7 +660,9 @@ Error generating stack: `+s.message+`
  静物：破旧、破损的物品、使人伤感的物品。
 
  人物：疲倦的人、疲惫的人、受伤的人、衰老的人、无能为力的人、休息的人、哀思、哭泣的人。`,bing:`病
- 概念：生病、疾病、病灶、瘟神、讨厌、憎恨、埋怨、弊端、瑕疵、缺点、弱点、腐败、仇人、仇视、不足之处、缺点、欠缺、毛病、弱点、漏洞、把柄、要害、心病、问题突出、特殊、特别、不正常、动、升迁、迁移、牵挂、思考、贫穷、损坏。环境:有问题的地方、破损的地方、动的环境、破旧的场所、流水的场所、突出的地方、活动的场所、坟墓、车站、裂缝、被堵的路、干裂的土地、门。
+ 概念：生病、疾病、病灶、瘟神、讨厌、憎恨、埋怨、弊端、瑕疵、缺点、弱点、腐败、仇人、仇视、不足之处、缺点、欠缺、毛病、弱点、漏洞、把柄、要害、心病、问题突出、特殊、特别、不正常、动、升迁、迁移、牵挂、思考、贫穷、损坏。
+
+环境:有问题的地方、破损的地方、动的环境、破旧的场所、流水的场所、突出的地方、活动的场所、坟墓、车站、裂缝、被堵的路、干裂的土地、门。
 
  动物：会动的、和水有关的动物、突出的动物、迁徙的动物。
 
@@ -757,7 +759,7 @@ Error generating stack: `+s.message+`
 亥：绝`,i.zhangShengInfo=[P.zhangSheng.mu,P.zhangSheng.jue];break;case"坎":i.ganZhangSheng="子：胎",i.zhangShengInfo=[P.zhangSheng.tai];break;case"艮":i.ganZhangSheng=`丑：养
 寅：长生`,i.zhangShengInfo=[P.zhangSheng.yang,P.zhangSheng.zhangSheng];break;case"震":i.ganZhangSheng="卯：沐浴",i.zhangShengInfo=[P.zhangSheng.muYu];break;case"巽":i.ganZhangSheng=`辰：冠带
 巳：临官`,i.zhangShengInfo=[P.zhangSheng.guanDai,P.zhangSheng.linGuan];break;case"离":i.ganZhangSheng="午：帝旺",i.zhangShengInfo=[P.zhangSheng.diWang];break;case"坤":i.ganZhangSheng=`未：衰
-申：病`,i.zhangShengInfo=[P.zhangSheng.bing];break;case"兑":i.ganZhangSheng="酉：死",i.zhangShengInfo=[P.zhangSheng.si];break}break;case"丁":switch(n){case"乾":i.ganZhangSheng=`戌：养
+申：病`,i.zhangShengInfo=[P.zhangSheng.shuai,P.zhangSheng.bing];break;case"兑":i.ganZhangSheng="酉：死",i.zhangShengInfo=[P.zhangSheng.si];break}break;case"丁":switch(n){case"乾":i.ganZhangSheng=`戌：养
 亥：胎`,i.zhangShengInfo=[P.zhangSheng.yang,P.zhangSheng.tai];break;case"坎":i.ganZhangSheng="子：绝",i.zhangShengInfo=[P.zhangSheng.jue];break;case"艮":i.ganZhangSheng=`丑：墓
 寅：死`,i.zhangShengInfo=[P.zhangSheng.mu,P.zhangSheng.si];break;case"震":i.ganZhangSheng="卯：病",i.zhangShengInfo=[P.zhangSheng.bing];break;case"巽":i.ganZhangSheng=`辰：衰
 巳：帝旺`,i.zhangShengInfo=[P.zhangSheng.shuai,P.zhangSheng.diWang];break;case"离":i.ganZhangSheng="午：临官",i.zhangShengInfo=[P.zhangSheng.linGuan];break;case"坤":i.ganZhangSheng=`未：冠带
