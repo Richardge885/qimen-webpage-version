@@ -68,6 +68,7 @@ const RegularColor = ({
             : diPanShen === '符'
               ? 'text-[#E94C43]'
               : '';
+
     const regularZhiShiStyle =
         men.charAt(0) === currentZhiShi ? 'text-[#E94C43]' : '';
     const regularShiGanSytle =
@@ -88,7 +89,7 @@ const RegularColor = ({
                 <div>{anGan}</div>
                 <div className={regularZhiFuStyle}>{xing}</div>
                 <div className={regularShiGanSytle}>
-                    <span className='absolute bottom-4 m:bottom-5 sm:bottom-7 left-[0.17rem] sm:left-[0.21rem] text-[0.7rem] m:text-[0.9rem] sm:text-lg text-text'>
+                    <span className='absolute bottom-4 m:bottom-5 sm:bottom-7 left-[0.17rem] sm:left-[0.21rem] text-[0.8rem] m:text-[0.9rem] sm:text-lg text-text'>
                         {displayTianPanLiuQin}
                     </span>
                     {tianPanGan}

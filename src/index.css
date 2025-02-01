@@ -4,15 +4,15 @@
 
 /* src url 必须参考 tailwind 的输出文件, 不是input.css 文件 */
 
-@layer base {
-    @font-face {
-        font-family: 'kaiti';
-        src: url('./assets/KaiTi.woff2');
-    }
-}
+/* @layer base { */
+/*     @font-face { */
+/*         font-family: 'kaiti'; */
+/*         src: url('./assets/KaiTi.woff2'); */
+/*     } */
+/* } */
 
 * {
-    font-family: kaiti;
+    /* font-family: kaiti; */
     color: '#362420';
 }
 

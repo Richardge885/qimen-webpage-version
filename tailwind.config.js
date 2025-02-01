@@ -19,7 +19,7 @@ export default {
                 widerM: '33.125rem', // 440px
             },
             fontFamily: {
-                kaiti: 'kaiti',
+                // kaiti: 'kaiti',
             },
             colors: {
                 // 基本配色
